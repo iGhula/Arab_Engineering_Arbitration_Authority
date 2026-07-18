@@ -7,7 +7,7 @@ const BooksSection = ({ hideTitle = true }) => {
     {
       title: "عقد المقاولة العربي الموحد",
       type: "PDF",
-      url: "/عقد-المقاولة-العربي-الموحد-.pdf",
+      url: "/عقد-المقاولة-العربي-الموحد--preview.pdf",
       desc: "الإصدار الثاني لعام 2022 - الشروط العامة والشروط الخاصة للعقد. صادر عن الأمانة العامة لاتحاد المهندسين العرب."
     }
   ];
@@ -53,7 +53,7 @@ const BooksSection = ({ hideTitle = true }) => {
                   alt={book.title} 
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#04111d]/90 via-[#04111d]/20 to-transparent opacity-80"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent opacity-80"></div>
                 
                 {/* Overlay Icon */}
                 <div className="absolute top-4 left-4 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
@@ -79,13 +79,13 @@ const BooksSection = ({ hideTitle = true }) => {
                 {/* Action Button */}
                 <div className="mt-auto pt-6 border-t border-gray-100">
                   <a 
-                    href={book.url}
+                    href={`${book.url}#toolbar=0`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-3 w-full py-4 bg-gray-50 hover:bg-primary hover:text-white text-primary font-bold rounded-xl transition-all duration-300 group/btn"
                   >
-                    <span>عرض وتحميل الكتاب</span>
-                    <Download className="w-5 h-5 group-hover/btn:-translate-y-1 transition-transform" />
+                    <span>قراءة الكتاب</span>
+                    <Book className="w-5 h-5 group-hover/btn:-translate-y-1 transition-transform" />
                   </a>
                 </div>
               </div>

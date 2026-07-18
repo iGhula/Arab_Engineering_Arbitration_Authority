@@ -1,61 +1,24 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Phone, User } from 'lucide-react';
+import rawArbitrators from '../data/arbitrators.json';
+
+// Parse the JSON data from the Excel sheet (removing header row)
+const arbitratorsList = rawArbitrators.slice(1).map((row, index) => ({
+  id: row[0] || `auto-${index}`,
+  name: row[1],
+  country: row[2],
+  specialty: row[3]
+})).filter(a => a.name); // Filter out empty rows
+
+const uniqueCountries = [...new Set(arbitratorsList.map(a => a.country).filter(Boolean))];
+const countries = ["الكل", "الرئاسية", ...uniqueCountries];
 
 const ArbitratorsSection = () => {
   const [activeTab, setActiveTab] = useState('الكل');
 
-  const arbitrators = [
-    {
-      id: 1,
-      name: "ناصر حسن المطيري",
-      specialty: "مدني",
-      country: "الكويت",
-      desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
-      image: "/members/n_mutairi.jpg"
-    },
-    {
-      id: 2,
-      name: "محمد سمير صالح ملياني",
-      specialty: "عمارة",
-      country: "السعودية",
-      desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
-    },
-    {
-      id: 3,
-      name: "عمرو فتحي أحمد رضوان",
-      specialty: "مدني",
-      country: "مصر",
-      desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
-    },
-    {
-      id: 4,
-      name: "خالد محمود الغرياني",
-      specialty: "مدني",
-      country: "ليبيا",
-      desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
-    },
-    {
-      id: 5,
-      name: "على محمد على منصور",
-      specialty: "مدني",
-      country: "ليبيا",
-      desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
-    },
-    {
-      id: 6,
-      name: "محمد عبدالنبي على الشنتيري",
-      specialty: "مدني",
-      country: "الكويت",
-      desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
-    }
-  ];
-
-  const countries = ["الكل", "الكويت", "السعودية", "مصر", "ليبيا"];
-
   const filteredArbitrators = activeTab === 'الكل' 
-    ? arbitrators 
-    : arbitrators.filter(a => a.country === activeTab);
+    ? arbitratorsList 
+    : arbitratorsList.filter(a => a.country === activeTab);
 
   return (
     <div className="bg-gray-50 min-h-screen">
@@ -65,7 +28,7 @@ const ArbitratorsSection = () => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1920" alt="Arbitrators Background" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#04111d]/95 via-[#0b4b7a]/80 to-[#04111d]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-primary/80 to-dark/90"></div>
         </div>
         
         {/* Decorative Elements */}
@@ -86,7 +49,7 @@ const ArbitratorsSection = () => {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl font-black text-white mb-8 drop-shadow-2xl"
           >
-            قوائم المحكمين
+            القوائم الموحدة للمحكمين
           </motion.h1>
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
@@ -102,15 +65,15 @@ const ArbitratorsSection = () => {
         <div className="container mx-auto px-4 max-w-7xl">
           
           {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-4 mb-16">
+          <div className="flex flex-wrap justify-center gap-3 mb-16 max-w-5xl mx-auto">
             {countries.map((country, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTab(country)}
-                className={`px-8 py-3 rounded-md font-bold transition-all duration-300 text-lg ${
+                className={`px-6 py-2 rounded-md font-bold transition-all duration-300 ${
                   activeTab === country 
-                    ? 'bg-[#0b4b7a] text-white shadow-lg scale-105' 
-                    : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                    ? 'bg-primary text-white shadow-lg scale-105' 
+                    : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 text-sm'
                 }`}
               >
                 {country}
@@ -119,64 +82,44 @@ const ArbitratorsSection = () => {
           </div>
 
           {/* Arbitrators Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="popLayout">
               {filteredArbitrators.map((arbitrator) => (
                 <motion.div
                   layout
                   key={arbitrator.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col sm:flex-row-reverse hover:shadow-xl hover:border-primary/20 transition-all duration-300"
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col text-right hover:shadow-xl hover:border-secondary/30 transition-all duration-300"
                 >
-                  {/* Image Area (Right Side) */}
-                  <div className="sm:w-2/5 bg-gray-100 flex items-center justify-center p-8 border-b sm:border-b-0 sm:border-l border-gray-200 relative overflow-hidden group">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-gray-200 to-gray-50 opacity-50"></div>
-                    {arbitrator.image ? (
-                      <img src={arbitrator.image} alt={arbitrator.name} className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition-transform duration-500" />
-                    ) : (
-                      <User className="w-32 h-32 text-gray-300 group-hover:scale-110 transition-transform duration-500 relative z-10" strokeWidth={1} />
+                  <h3 className="text-xl font-bold text-primary mb-3 leading-tight">
+                    {arbitrator.name}
+                  </h3>
+                  <div className="flex flex-col gap-2 mt-auto">
+                    <div className="flex items-center justify-end gap-2 text-gray-600 font-medium">
+                      <span>{arbitrator.country}</span>
+                      <span className="w-2 h-2 rounded-full bg-secondary"></span>
+                    </div>
+                    {arbitrator.specialty && (
+                      <div className="flex items-center justify-end gap-2 text-gray-500 text-sm">
+                        <span>{arbitrator.specialty}</span>
+                      </div>
                     )}
-                  </div>
-
-                  {/* Content Area (Left Side) */}
-                  <div className="sm:w-3/5 p-8 flex flex-col text-right">
-                    <h3 className="text-2xl font-bold text-[#0b4b7a] mb-2 leading-tight">
-                      {arbitrator.name}
-                    </h3>
-                    <div className="text-secondary font-medium mb-4">
-                      {arbitrator.specialty} - {arbitrator.country}
-                    </div>
-                    <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">
-                      {arbitrator.desc}
-                    </p>
-                    
-                    {/* Action Buttons */}
-                    <div className="flex justify-end gap-3 mt-auto">
-                      <button className="w-10 h-10 bg-[#0b4b7a] hover:bg-secondary text-white rounded flex items-center justify-center transition-colors duration-300">
-                        <Phone className="w-5 h-5" />
-                      </button>
-                      <button className="w-10 h-10 bg-[#0b4b7a] hover:bg-secondary text-white rounded flex items-center justify-center transition-colors duration-300">
-                        <Mail className="w-5 h-5" />
-                      </button>
-                    </div>
                   </div>
                 </motion.div>
               ))}
             </AnimatePresence>
+            {filteredArbitrators.length === 0 && (
+              <div className="col-span-full text-center py-24 text-gray-500 text-lg">
+                لا يوجد محكمين في هذا التصنيف حالياً.
+              </div>
+            )}
           </div>
-
-          {filteredArbitrators.length === 0 && (
-            <div className="text-center py-20 text-gray-400 text-xl font-bold">
-              لا يوجد محكمين متاحين لهذه الدولة حالياً.
-            </div>
-          )}
-
+          
         </div>
       </section>
-
     </div>
   );
 };

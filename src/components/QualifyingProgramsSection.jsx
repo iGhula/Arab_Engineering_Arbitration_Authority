@@ -90,7 +90,7 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920" alt="Hero Background" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#04111d]/95 via-[#0b4b7a]/80 to-[#04111d]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-primary/80 to-dark/90"></div>
         </div>
         
         {/* Decorative Elements */}
@@ -190,14 +190,35 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
               <h3 className="text-3xl font-bold text-primary mb-6">برنامج تأهيل وإعداد <span className="text-secondary">المحكمين</span></h3>
               <p className="text-gray-500 leading-relaxed mb-8">{dummyTextIntro}</p>
               
-              <ul className="space-y-4">
+              <ul className="space-y-4 mb-8" dir="rtl">
                 {dummyList.map((item, idx) => (
-                  <li key={idx} className="flex items-start justify-end gap-3 text-gray-600 bg-gray-50 p-3 rounded-lg border border-gray-100">
-                    <span className="text-sm font-medium pt-0.5">{item}</span>
-                    <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0" />
+                  <li key={idx} className="flex items-start gap-3 text-gray-600 bg-gray-50 p-4 rounded-lg border border-gray-100 text-right">
+                    <CheckCircle2 className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm font-medium">{item}</span>
                   </li>
                 ))}
               </ul>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-end">
+                <a 
+                  href="/منهج تأهيل واعداد المحكم الهندسي 01-preview.pdf#toolbar=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-secondary text-white rounded-lg font-bold hover:bg-secondary/90 transition-colors shadow-lg"
+                >
+                  <span>عرض منهج التأهيل والإعداد</span>
+                  <BookOpen className="w-5 h-5" />
+                </a>
+                <a 
+                  href="/دليل دورة التحكيم الهندسي 01.pdf#toolbar=0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors shadow-lg"
+                >
+                  <span>عرض دليل دورة التحكيم</span>
+                  <BookOpen className="w-5 h-5" />
+                </a>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -217,36 +238,7 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
           </motion.div>
 
           <div className="flex flex-col lg:flex-row items-center gap-12">
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="w-full lg:w-1/2 text-right order-2 lg:order-1"
-            >
-              <h3 className="text-3xl font-bold text-primary mb-6">التقدم <span className="text-secondary">للتأهيل</span> بالهيئة</h3>
-              <p className="text-gray-500 leading-relaxed mb-8">{dummyTextIntro}</p>
-              
-              <ul className="space-y-4">
-                {dummyList.map((item, idx) => (
-                  <li key={idx} className="flex items-start justify-end gap-3 text-gray-600 bg-white p-3 rounded-lg border border-gray-100 shadow-sm">
-                    <span className="text-sm font-medium pt-0.5">{item}</span>
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="w-full lg:w-1/2 order-1 lg:order-2 relative"
-            >
-              {/* Decorative block from screenshot */}
-              <div className="absolute -bottom-8 -right-8 w-48 h-48 bg-secondary z-0"></div>
-              <div className="absolute -bottom-8 right-40 w-24 h-24 bg-primary z-0"></div>
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Applying" className="rounded-xl shadow-2xl w-full relative z-10" />
-            </motion.div>
+            {/* Empty for now */}
           </div>
         </div>
       </section>
@@ -295,7 +287,7 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
               className="w-full lg:w-2/5 order-1 lg:order-2 text-right sticky top-32 h-fit"
             >
               <h2 className="text-4xl font-bold text-primary mb-6 leading-tight">
-                كيفية التقدم للتأهيل <br/> <span className="text-secondary">بالهيئة</span>
+                كيفية التقدم للعضوية <br/> <span className="text-secondary">بالهيئة</span>
               </h2>
               <div className="w-16 h-1 bg-secondary ml-auto mb-8 rounded-full"></div>
               <p className="text-gray-500 leading-relaxed text-lg">

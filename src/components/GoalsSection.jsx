@@ -51,7 +51,7 @@ const GoalsSection = ({ preview = false }) => {
   };
 
   return (
-    <section id="goals" className="py-32 bg-[#04111d] relative overflow-hidden">
+    <section id="goals" className="py-32 bg-dark relative overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2"></div>

@@ -10,6 +10,13 @@ const ArticlesSection = ({ hideTitle = true }) => {
       url: "/اثر-الوسائل-البديلة-في-انجاح-المشروعات.pdf",
       desc: "دورة بعنوان أثر الوسائل البديلة في نجاح المشروعات برعاية الأمانة العامة لإتحاد المهندسين العرب وبالتعاون مع نقابة المهندسين المصريين.",
       image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      title: "العقود الهندسية",
+      type: "PDF",
+      url: "/مقال - العقود الهندسية.pdf",
+      desc: "مقال تفصيلي حول العقود الهندسية وأهميتها في تنظيم العلاقة بين الأطراف المشاركة في المشروعات.",
+      image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=600"
     }
   ];
 
@@ -53,7 +60,7 @@ const ArticlesSection = ({ hideTitle = true }) => {
                   alt={article.title} 
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#04111d]/90 via-[#04111d]/20 to-transparent opacity-80"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/20 to-transparent opacity-80"></div>
                 
                 {/* Overlay Icon */}
                 <div className="absolute top-4 left-4 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center border border-white/20">
@@ -79,13 +86,13 @@ const ArticlesSection = ({ hideTitle = true }) => {
                 {/* Action Button */}
                 <div className="mt-auto pt-6 border-t border-gray-100">
                   <a 
-                    href={article.url}
+                    href={`${article.url}#toolbar=0`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-3 w-full py-4 bg-gray-50 hover:bg-secondary hover:text-white text-secondary font-bold rounded-xl transition-all duration-300 group/btn"
                   >
                     <span>قراءة المقال</span>
-                    <Download className="w-5 h-5 group-hover/btn:-translate-y-1 transition-transform" />
+                    <BookOpen className="w-5 h-5 group-hover/btn:-translate-y-1 transition-transform" />
                   </a>
                 </div>
               </div>

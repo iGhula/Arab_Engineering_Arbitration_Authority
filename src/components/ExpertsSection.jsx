@@ -65,7 +65,7 @@ const ExpertsSection = () => {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1920" alt="Experts Background" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#04111d]/95 via-[#0b4b7a]/80 to-[#04111d]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-primary/80 to-dark/90"></div>
         </div>
         
         {/* Decorative Elements */}
@@ -109,7 +109,7 @@ const ExpertsSection = () => {
                 onClick={() => setActiveTab(role)}
                 className={`px-8 py-3 rounded-md font-bold transition-all duration-300 text-lg ${
                   activeTab === role 
-                    ? 'bg-[#0b4b7a] text-white shadow-lg scale-105' 
+                    ? 'bg-primary text-white shadow-lg scale-105' 
                     : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
                 }`}
               >
@@ -143,7 +143,7 @@ const ExpertsSection = () => {
 
                   {/* Content Area (Left Side) */}
                   <div className="sm:w-3/5 p-8 flex flex-col text-right">
-                    <h3 className="text-2xl font-bold text-[#0b4b7a] mb-2 leading-tight">
+                    <h3 className="text-2xl font-bold text-primary mb-2 leading-tight">
                       {expert.name}
                     </h3>
                     <div className="text-secondary font-medium mb-4">
@@ -155,10 +155,10 @@ const ExpertsSection = () => {
                     
                     {/* Action Buttons */}
                     <div className="flex justify-end gap-3 mt-auto">
-                      <button className="w-10 h-10 bg-[#0b4b7a] hover:bg-secondary text-white rounded flex items-center justify-center transition-colors duration-300">
+                      <button className="w-10 h-10 bg-primary hover:bg-secondary text-white rounded flex items-center justify-center transition-colors duration-300">
                         <Phone className="w-5 h-5" />
                       </button>
-                      <button className="w-10 h-10 bg-[#0b4b7a] hover:bg-secondary text-white rounded flex items-center justify-center transition-colors duration-300">
+                      <button className="w-10 h-10 bg-primary hover:bg-secondary text-white rounded flex items-center justify-center transition-colors duration-300">
                         <Mail className="w-5 h-5" />
                       </button>
                     </div>

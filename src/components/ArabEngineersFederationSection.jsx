@@ -33,7 +33,7 @@ const ArabEngineersFederationSection = () => {
       <section className="relative py-32 overflow-hidden flex items-center justify-center min-h-[45vh]">
         <div className="absolute inset-0">
           <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1920" alt="Arab Engineers Federation" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#04111d]/95 via-[#0b4b7a]/80 to-[#04111d]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-primary/80 to-dark/90"></div>
         </div>
         
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[100px]"></div>
@@ -76,13 +76,13 @@ const ArabEngineersFederationSection = () => {
               className="w-full lg:w-1/2 relative"
             >
               <div className="absolute -top-6 -right-6 w-32 h-32 bg-secondary/20 rounded-full blur-2xl z-0"></div>
-              <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-[#0b4b7a]/10 rounded-full blur-3xl z-0"></div>
+              <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-primary/10 rounded-full blur-3xl z-0"></div>
               
               <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800" alt="Engineers Collaboration" className="rounded-2xl shadow-2xl w-full relative z-10" />
               
               {/* Floating Decorative Badge */}
               <div className="absolute -top-8 -right-8 bg-white p-4 rounded-xl shadow-xl z-20 border-t-4 border-secondary hidden md:block">
-                <div className="w-16 h-16 bg-[#0b4b7a]/5 rounded-lg flex items-center justify-center">
+                <div className="w-16 h-16 bg-primary/5 rounded-lg flex items-center justify-center">
                   <Landmark className="w-8 h-8 text-primary" />
                 </div>
               </div>
@@ -102,7 +102,7 @@ const ArabEngineersFederationSection = () => {
               </p>
               <a 
                 href="#"
-                className="inline-flex items-center justify-center gap-2 bg-[#0b4b7a] text-white px-8 py-3 rounded-lg font-bold hover:bg-secondary transition-colors duration-300 group"
+                className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-secondary transition-colors duration-300 group"
               >
                 <span>إذهب إلى الموقع</span>
                 <ExternalLink className="w-5 h-5 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" />

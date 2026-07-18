@@ -11,15 +11,15 @@ import CoursesPublicationsSection from '../components/CoursesPublicationsSection
 
 const HeroSection = () => {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#04111d] flex items-center pt-24">
+    <div className="relative min-h-screen overflow-hidden bg-dark flex items-center pt-24">
       {/* Dynamic Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0b4b7a]/40 via-[#04111d] to-[#c8953f]/10"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/40 via-dark to-[#c8953f]/10"></div>
       
       {/* Animated Glowing Orbs */}
       <motion.div 
         animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute -top-[20%] -right-[10%] w-[50vw] h-[50vw] rounded-full bg-[#0b4b7a] blur-[120px] opacity-30"
+        className="absolute -top-[20%] -right-[10%] w-[50vw] h-[50vw] rounded-full bg-primary blur-[120px] opacity-30"
       />
       <motion.div 
         animate={{ scale: [1, 1.5, 1], opacity: [0.2, 0.4, 0.2] }}
@@ -62,7 +62,12 @@ const HeroSection = () => {
                   </span>
                 </button>
                 
-                <button className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-lg border border-white/10 backdrop-blur-md transition-all flex items-center justify-center gap-2">
+                <button onClick={(e) => {
+                  e.preventDefault();
+                  window.history.pushState({}, '', '/contact-us');
+                  window.dispatchEvent(new PopStateEvent('popstate'));
+                  window.scrollTo(0, 0);
+                }} className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-lg border border-white/10 backdrop-blur-md transition-all flex items-center justify-center gap-2">
                   تواصل معنا
                 </button>
               </div>
@@ -82,7 +87,7 @@ const HeroSection = () => {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/20 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-secondary/40 transition-colors duration-500"></div>
                 
                 <div className="flex justify-between items-start relative z-10">
-                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#0b4b7a] to-[#04111d] border border-white/10 flex items-center justify-center shadow-lg">
+                   <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-dark border border-white/10 flex items-center justify-center shadow-lg">
                       <Scale className="w-7 h-7 text-secondary" />
                    </div>
                    <div className="text-right">

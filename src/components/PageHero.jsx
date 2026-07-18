@@ -6,7 +6,7 @@ const PageHero = ({ tag, title }) => {
     <section className="relative py-32 overflow-hidden flex items-center justify-center min-h-[45vh]">
       <div className="absolute inset-0">
         <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1920" alt="Hero Background" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#04111d]/95 via-[#0b4b7a]/80 to-[#04111d]/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-primary/80 to-dark/90"></div>
       </div>
       
       <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[100px]"></div>

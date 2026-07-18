@@ -11,13 +11,16 @@ export default {
       },
       colors: {
         primary: {
-          DEFAULT: '#0b4b7a', // Dark blue
+          DEFAULT: '#007eb5', // Logo Cyan Blue
         },
         secondary: {
-          DEFAULT: '#c8953f', // Gold
+          DEFAULT: '#d69e2e', // Logo Gold
+        },
+        dark: {
+          DEFAULT: '#02182b', // Darker navy for better contrast with cyan
         },
         light: {
-          DEFAULT: '#f9f9f9', // Very light gray for backgrounds
+          DEFAULT: '#f9f9f9',
         }
       }
     },

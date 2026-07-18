@@ -10,8 +10,14 @@ import QualifyingProgramsPage from './pages/QualifyingProgramsPage';
 import ArbitratorsPage from './pages/ArbitratorsPage';
 import ExpertsPage from './pages/ExpertsPage';
 import ArabEngineersFederationPage from './pages/ArabEngineersFederationPage';
-import ArabArbitrationCenterPage from './pages/ArabArbitrationCenterPage';
 
+
+import TrainingCoursesPage from './pages/TrainingCoursesPage';
+import ContactUsPage from './pages/ContactUsPage';
+import MembershipsPage from './pages/MembershipsPage';
+import ActivitiesPage from './pages/ActivitiesPage';
+import AgreementsPage from './pages/AgreementsPage';
+import AffiliatedCentersPage from './pages/AffiliatedCentersPage';
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
@@ -55,8 +61,25 @@ function App() {
     case '/arab-engineers-federation':
       Component = ArabEngineersFederationPage;
       break;
-    case '/arab-arbitration-center':
-      Component = ArabArbitrationCenterPage;
+
+
+    case '/training-courses':
+      Component = TrainingCoursesPage;
+      break;
+    case '/contact-us':
+      Component = ContactUsPage;
+      break;
+    case '/memberships':
+      Component = MembershipsPage;
+      break;
+    case '/activities':
+      Component = ActivitiesPage;
+      break;
+    case '/agreements':
+      Component = AgreementsPage;
+      break;
+    case '/affiliated-centers':
+      Component = AffiliatedCentersPage;
       break;
     default:
       Component = Home;

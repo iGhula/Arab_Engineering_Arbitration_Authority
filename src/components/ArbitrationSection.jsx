@@ -4,9 +4,9 @@ import { CheckCircle2, ArrowLeft } from 'lucide-react';
 
 const ArbitrationSection = () => {
   const benefits = [
-    "رفع شأن عملية تسوية النزاعات وضمان تطورها",
-    "رفع شأن عملية تسوية النزاعات وضمان تطورها",
-    "رفع شأن عملية تسوية النزاعات وضمان تطورها",
+    "الفصل العادل والسريع في المنازعات الهندسية والمقاولات",
+    "نشر ثقافة التحكيم وتأهيل المحكمين والخبراء الهندسيين",
+    "التعاون مع مراكز التحكيم العربية والدولية لتبادل الخبرات",
   ];
 
   return (
@@ -52,7 +52,7 @@ const ArbitrationSection = () => {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-primary hover:bg-[#08385e] text-white px-10 py-4 rounded-xl font-bold transition-colors flex items-center justify-center gap-3 shadow-lg shadow-primary/30"
+                className="bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-xl font-bold transition-colors flex items-center justify-center gap-3 shadow-lg shadow-primary/30"
               >
                 تعرف علينا
                 <ArrowLeft className="w-5 h-5" />
@@ -61,7 +61,7 @@ const ArbitrationSection = () => {
           </div>
 
           {/* Image Grid (Left Side RTL) */}
-          <div className="lg:w-1/2 relative w-full h-[600px]">
+          <div className="lg:w-1/2 relative w-full h-[500px] md:h-[600px]">
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -73,22 +73,20 @@ const ArbitrationSection = () => {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-secondary/20 rounded-full blur-[80px]"></div>
 
               <div className="space-y-4 pt-16">
-                <div className="h-64 rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-500">
-                  <img src="https://images.unsplash.com/photo-1505664159893-66258d4a9f99?auto=format&fit=crop&q=80" alt="Architecture" className="w-full h-full object-cover" />
+                <div className="h-48 md:h-64 rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-500">
+                  <img src="/img1.png" alt="Meeting Room" className="w-full h-full object-cover" />
                 </div>
-                <div className="h-48 rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-500">
-                  <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80" alt="Gavel" className="w-full h-full object-cover" />
+                <div className="h-40 md:h-48 rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-500">
+                  <img src="/img2.png" alt="Architectural Blueprints" className="w-full h-full object-cover" />
                 </div>
               </div>
               
               <div className="space-y-4">
-                <div className="h-48 rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-500">
-                  <div className="w-full h-full bg-primary flex items-center justify-center p-8 text-center relative overflow-hidden">
-                    <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#fff 2px, transparent 2px)', backgroundSize: '16px 16px' }}></div>
-                  </div>
+                <div className="h-40 md:h-48 rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-500">
+                  <img src="/img3.png" alt="Modern Office" className="w-full h-full object-cover" />
                 </div>
-                <div className="h-64 rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-500">
-                  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" alt="Corporate office" className="w-full h-full object-cover" />
+                <div className="h-48 md:h-64 rounded-2xl overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-500">
+                  <img src="/img4.png" alt="Legal Documents" className="w-full h-full object-cover" />
                 </div>
               </div>
             </motion.div>

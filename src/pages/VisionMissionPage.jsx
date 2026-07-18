@@ -14,7 +14,7 @@ const VisionMissionPage = () => {
   return (
     <div className="font-sans text-gray-800 bg-light min-h-screen flex flex-col relative">
       {/* Add a solid background bar at the top to make the absolute header visible */}
-      <div className="absolute top-0 left-0 right-0 h-24 bg-[#04111d] z-40 shadow-md"></div>
+      <div className="absolute top-0 left-0 right-0 h-24 bg-dark z-40 shadow-md"></div>
       
       {/* Header is absolute and z-50 */}
       <Header />

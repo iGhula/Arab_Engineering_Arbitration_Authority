@@ -21,7 +21,21 @@ const ArbitrationServicesSection = ({ hideTitle = true }) => {
     }
   ];
 
-  const dummyListItem = "رفع شأن عملية تسوية النزاعات وضمان تطورها";
+  const disputeScaleList = [
+    "تنوع النزاعات لتشمل المطالبات المالية وتمديد الوقت",
+    "تزايد عدد القضايا الهندسية المطروحة للتحكيم سنوياً",
+    "تعقيد النزاعات لتداخل الجوانب الفنية والقانونية",
+    "ارتفاع القيمة المالية للمطالبات في المشاريع الكبرى",
+    "الحاجة المتزايدة لخبراء ومحكمين متخصصين هندسياً"
+  ];
+
+  const disputeImpactList = [
+    "تأخير في الجدول الزمني لتنفيذ المشروع",
+    "زيادة في التكاليف والنفقات الإضافية",
+    "تدهور العلاقات بين أطراف العقد",
+    "التأثير السلبي على جودة العمل المنفذ",
+    "تجميد المستحقات المالية للمقاولين"
+  ];
 
   return (
     <section className="py-24 bg-gray-50 relative overflow-hidden">
@@ -53,7 +67,7 @@ const ArbitrationServicesSection = ({ hideTitle = true }) => {
               transition={{ delay: index * 0.1 }}
               className="bg-white rounded-3xl p-10 text-center shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_15px_50px_rgba(0,0,0,0.08)] transition-all duration-300 border border-gray-100 group"
             >
-              <div className="w-24 h-24 mx-auto bg-[#0b4b7a]/5 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary group-hover:scale-110 transition-all duration-500">
+              <div className="w-24 h-24 mx-auto bg-primary/5 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-primary group-hover:scale-110 transition-all duration-500">
                 <div className="group-hover:brightness-200 transition-all duration-500">
                   {card.icon}
                 </div>
@@ -93,9 +107,19 @@ const ArbitrationServicesSection = ({ hideTitle = true }) => {
             <h3 className="text-3xl font-bold text-primary mb-6 leading-tight">
               ما تقوم به <span className="text-secondary">الهيئة العربية للتحكيم</span>
             </h3>
-            <p className="text-gray-500 leading-loose text-lg">
+            <p className="text-gray-500 leading-loose text-lg mb-8">
               إن اتحاد المهندسين العرب هو منظمة هندسية عربية توحد الأهداف والعمل المستقبلي والتعاون لكل المهندسين العرب. التعاون والتنسيق هو الهدف الرئيسي للاتحاد الهندسي العربي ولغرض زيادة حالة المهندسين العرب ومهنتهم بخدمة المجتمع العربي وقضاياه المختلفة سواء إن كانت علمياً ، تكنولوجياً أو تعليمياً وخدمة هدف الأمة العربية في بناء وحدتها، والاستقلال السياسي والاقتصادي.
             </p>
+            
+            <a 
+              href="/اجراءات وقواعد التحكيم الهندسي.pdf#toolbar=0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-secondary text-white rounded-lg font-bold hover:bg-secondary/90 transition-colors shadow-lg"
+            >
+              <span>عرض إجراءات وقواعد التحكيم الهندسي</span>
+              <Scale className="w-5 h-5" />
+            </a>
           </motion.div>
         </div>
 
@@ -111,9 +135,9 @@ const ArbitrationServicesSection = ({ hideTitle = true }) => {
           >
             <h4 className="text-2xl font-bold text-secondary mb-8">توضيح حجم المنازعات الهندسية</h4>
             <ul className="space-y-4">
-              {[1, 2, 3, 4, 5].map((_, idx) => (
+              {disputeScaleList.map((item, idx) => (
                 <li key={idx} className="flex items-center justify-end gap-3 text-gray-500">
-                  <span>{dummyListItem}</span>
+                  <span>{item}</span>
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
                 </li>
               ))}
@@ -130,9 +154,9 @@ const ArbitrationServicesSection = ({ hideTitle = true }) => {
           >
             <h4 className="text-2xl font-bold text-secondary mb-8">تأثير المنازعات الهندسية</h4>
             <ul className="space-y-4">
-              {[1, 2, 3, 4].map((_, idx) => (
+              {disputeImpactList.map((item, idx) => (
                 <li key={idx} className="flex items-center justify-end gap-3 text-gray-500">
-                  <span>{dummyListItem}</span>
+                  <span>{item}</span>
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
                 </li>
               ))}

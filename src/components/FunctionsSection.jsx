@@ -33,7 +33,7 @@ const FunctionsSection = ({ hideTitle = true }) => {
 
   return (
     <section className="py-24 bg-gray-50 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-[300px] bg-gradient-to-b from-[#0b4b7a]/5 to-transparent"></div>
+      <div className="absolute top-0 left-0 w-full h-[300px] bg-gradient-to-b from-primary/5 to-transparent"></div>
       
       <div className="container mx-auto px-4 relative z-10 max-w-5xl">
         {!hideTitle && (
@@ -71,7 +71,7 @@ const FunctionsSection = ({ hideTitle = true }) => {
                 </p>
               </div>
 
-              <div className="order-1 md:order-2 flex-shrink-0 mb-4 md:mb-0 w-16 h-16 rounded-full bg-[#0b4b7a]/5 flex items-center justify-center group-hover:bg-secondary/10 transition-colors duration-300">
+              <div className="order-1 md:order-2 flex-shrink-0 mb-4 md:mb-0 w-16 h-16 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-secondary/10 transition-colors duration-300">
                 <CheckCircle2 className="w-8 h-8 text-primary group-hover:text-secondary transition-colors duration-300" />
               </div>
 
