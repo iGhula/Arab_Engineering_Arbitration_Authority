@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, ChevronDown, Calendar, BookOpen, Users, GraduationCap, Award, FileSignature, Landmark, Building } from 'lucide-react';
+import { CheckCircle2, ChevronDown, Calendar, BookOpen, Users, GraduationCap, Award, FileSignature, Landmark, Building, History } from 'lucide-react';
 
 const QualifyingProgramsSection = ({ hideTitle = true }) => {
   const dummyTextIntro = "المستهدفون بهذا البرنامج هم جميع أطراف العقد مثل المالك، المهندس، المقاول، العاملين في إدارة العقود، والمسؤولون عن حل المنازعات في العقود. ويتم في هذا البرنامج تدريب المشاركين على ما يلي :";
@@ -19,58 +19,25 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
 
   const cards = [
     {
-      title: "منهج التدريب",
-      desc: "المستهدفون بهذا البرنامج هم جميع أطراف العقد مثل المالك ، المهندس ، المقاول",
+      title: "دورة التحكيم الهندسي",
+      desc: "برنامج تأهيل وإعداد المحكمين، موجه لجميع أطراف العقد الهندسي وتدريبهم على التحكيم وإدارة العقود.",
       icon: <BookOpen className="w-8 h-8 text-secondary" />,
       image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=600",
       anchor: "#curriculum"
     },
     {
-      title: "جدول مواعيد الدورات",
-      desc: "المستهدفون بهذا البرنامج هم جميع أطراف العقد مثل المالك ، المهندس ، المقاول",
-      icon: <Calendar className="w-8 h-8 text-secondary" />,
-      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=600",
-      anchor: "#schedule"
-    },
-    {
-      title: "كيفية الاشتراك في عضوية الهيئة",
-      desc: "المستهدفون بهذا البرنامج هم جميع أطراف العقد مثل المالك ، المهندس ، المقاول",
+      title: "تأهيل اعضاء مجلس فض النزاع",
+      desc: "برنامج متخصص لإعداد وتأهيل المهندسين والقانونيين للعمل كأعضاء في مجالس فض النزاعات وتطوير مهاراتهم.",
       icon: <Users className="w-8 h-8 text-secondary" />,
+      image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=600",
+      anchor: "/training-courses"
+    },
+    {
+      title: "دورات سابقة",
+      desc: "اطلع على أرشيف الدورات التدريبية السابقة التي نظمتها الهيئة وتفاصيلها.",
+      icon: <History className="w-8 h-8 text-secondary" />,
       image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=600",
-      anchor: "#how-to-apply"
-    }
-  ];
-
-  const steps = [
-    {
-      num: "01",
-      title: "الحصول على الشهادات الأكاديمية والخبرة العملية",
-      desc: "يجب أن تكون مهندساً حاصلاً على شهادة جامعية في الهندسة أو في تخصص ذي صلة. من المهم أن تكون لديك سنوات كافية من الخبرة العملية في مجال الهندسة (غالباً ما تكون 10 سنوات أو أكثر).",
-      icon: <GraduationCap className="w-6 h-6 text-white" />
-    },
-    {
-      num: "02",
-      title: "الحصول على دورات تدريبية متخصصة في التحكيم",
-      desc: 'يجب أن تلتحق بدورات تدريبية متخصصة في مجال التحكيم الهندسي. تقدم بعض المنظمات والمؤسسات المعترف بها عالمياً مثل "مركز التحكيم التجاري الدولي" أو "جمعية المهندسين" دورات معتمدة في التحكيم الهندسي.',
-      icon: <Award className="w-6 h-6 text-white" />
-    },
-    {
-      num: "03",
-      title: "اجتياز الامتحان التحريري",
-      desc: "يجب أن تجتاز امتحاناً تحريرياً في مجال التحكيم الهندسي، ويهدف هذا الامتحان إلى تقييم مدى إلمامك بالمفاهيم النظرية والإجراءات العملية المرتبطة بالتحكيم. تُنظم هذه الامتحانات من قبل الجهات المعنية وتُعد من المتطلبات الأساسية لاعتمادك كمحكم معتمد.",
-      icon: <FileSignature className="w-6 h-6 text-white" />
-    },
-    {
-      num: "04",
-      title: "الانضمام إلى جمعيات مهنية",
-      desc: 'يُفضل أن تكون عضواً في جمعية مهنية للهندسة أو جمعية معترف بها في مجال التحكيم مثل "الجمعية المصرية للمهندسين" أو "جمعية التحكيم الهندسي الدولي".',
-      icon: <Users className="w-6 h-6 text-white" />
-    },
-    {
-      num: "05",
-      title: "التسجيل في هيئات التحكيم الهندسي",
-      desc: "بعد إتمام الدورات التدريبية، يمكن التقدم للتسجيل في هيئة تحكيم معترف بها. في مصر مثلاً، يمكنك التقدم للجنة التحكيم الهندسي التابعة لنقابة المهندسين أو هيئة التحكيم الهندسي الدولي.",
-      icon: <Landmark className="w-6 h-6 text-white" />
+      anchor: "#schedule"
     }
   ];
 
@@ -103,7 +70,7 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
             animate={{ opacity: 1, y: 0 }}
             className="inline-block mb-6 px-5 py-1.5 rounded-full bg-white/10 text-secondary border border-secondary/30 backdrop-blur-md text-sm font-bold tracking-wider"
           >
-            البرامج التأهيلية
+            عن الهيئة
           </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
@@ -111,7 +78,7 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl font-black text-white mb-8 drop-shadow-2xl"
           >
-            دورة التحكيم الهندسي
+            البرامج التأهيلية
           </motion.h1>
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
@@ -142,13 +109,22 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
                 <div className="p-8 text-center flex flex-col flex-grow">
                   <h3 className="text-xl font-bold text-primary mb-4">{card.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">{card.desc}</p>
-                  <a 
-                    href={card.anchor}
-                    onClick={(e) => scrollTo(e, card.anchor)}
-                    className="inline-block border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-6 py-2 rounded-lg font-bold transition-colors duration-300"
-                  >
-                    معرفة المزيد
-                  </a>
+                  {card.anchor.startsWith('/') ? (
+                    <a 
+                      href={card.anchor}
+                      className="inline-block border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-6 py-2 rounded-lg font-bold transition-colors duration-300"
+                    >
+                      معرفة المزيد
+                    </a>
+                  ) : (
+                    <a 
+                      href={card.anchor}
+                      onClick={(e) => scrollTo(e, card.anchor)}
+                      className="inline-block border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-6 py-2 rounded-lg font-bold transition-colors duration-300"
+                    >
+                      معرفة المزيد
+                    </a>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -166,7 +142,7 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">منهج التدريب</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary">دورة التحكيم الهندسي</h2>
             <div className="w-16 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
           </motion.div>
         )}
@@ -233,68 +209,26 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">جدول مواعيد الدورات</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary">دورات سابقة</h2>
             <div className="w-16 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
+            <p className="text-gray-500 mt-4 text-lg">سيتم إضافة أرشيف الدورات السابقة قريباً...</p>
           </motion.div>
-
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            {/* Empty for now */}
-          </div>
         </div>
       </section>
 
-      {/* How To Apply Section (Timeline) */}
-      <section id="how-to-apply" className="py-24 bg-white border-t border-gray-200">
+      {/* Training Course PDF Viewer */}
+      <section className="py-16 bg-white border-t border-gray-200">
         <div className="container mx-auto px-4 max-w-6xl">
-          
-          <div className="flex flex-col lg:flex-row gap-16">
-            
-            {/* Timeline Steps (Left side visually, standard rendering) */}
-            <div className="w-full lg:w-3/5 order-2 lg:order-1">
-              <div className="space-y-12 relative before:absolute before:inset-0 before:ml-[50%] lg:before:ml-auto lg:before:mr-[27px] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 before:to-transparent text-right">
-                
-                {steps.map((step, idx) => (
-                  <motion.div 
-                    key={idx}
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className="relative flex items-start justify-end gap-6 group"
-                  >
-                    <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm group-hover:shadow-md group-hover:border-primary/20 transition-all w-full lg:w-[calc(100%-80px)] text-right">
-                      <h4 className="text-xl font-bold text-primary mb-3">{step.title}</h4>
-                      <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
-                    </div>
-                    
-                    <div className="flex flex-col items-center">
-                      <div className="w-14 h-14 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg relative z-10 group-hover:bg-secondary group-hover:scale-110 transition-all duration-300">
-                        {step.icon}
-                      </div>
-                      <div className="mt-2 text-primary font-black text-xl opacity-20">{step.num}</div>
-                    </div>
-                  </motion.div>
-                ))}
-
-              </div>
-            </div>
-
-            {/* Intro Text (Right side visually) */}
-            <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="w-full lg:w-2/5 order-1 lg:order-2 text-right sticky top-32 h-fit"
-            >
-              <h2 className="text-4xl font-bold text-primary mb-6 leading-tight">
-                كيفية التقدم للعضوية <br/> <span className="text-secondary">بالهيئة</span>
-              </h2>
-              <div className="w-16 h-1 bg-secondary ml-auto mb-8 rounded-full"></div>
-              <p className="text-gray-500 leading-relaxed text-lg">
-                المستهدفون بهذا البرنامج هم جميع أطراف العقد مثل المالك ، المهندس ، المقاول ، العاملين في إدارة العقود ، والمسؤولون عن حل المنازعات في العقود. ويتم في هذا البرنامج تدريب المشاركين على ما يلي :
-              </p>
-            </motion.div>
-
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-dark mb-4">الحقيبة التدريبية</h2>
+            <div className="h-1 w-20 bg-secondary mx-auto rounded"></div>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden" style={{ height: '80vh' }}>
+            <iframe 
+              src="/الحقيبة التدريبية للدورة اونلاين.pdf#toolbar=0" 
+              className="w-full h-full border-none pointer-events-auto"
+              title="الحقيبة التدريبية للدورة اونلاين"
+            ></iframe>
           </div>
         </div>
       </section>

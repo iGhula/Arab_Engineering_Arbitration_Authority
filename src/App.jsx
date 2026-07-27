@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import VisionMissionPage from './pages/VisionMissionPage';
 import FunctionsPage from './pages/FunctionsPage';
 import CommitteePage from './pages/CommitteePage';
+import PresidentsPage from './pages/PresidentsPage';
 import ArbitrationServicesPage from './pages/ArbitrationServicesPage';
 import BooksPage from './pages/BooksPage';
 import ArticlesPage from './pages/ArticlesPage';
@@ -10,14 +11,14 @@ import QualifyingProgramsPage from './pages/QualifyingProgramsPage';
 import ArbitratorsPage from './pages/ArbitratorsPage';
 import ExpertsPage from './pages/ExpertsPage';
 import ArabEngineersFederationPage from './pages/ArabEngineersFederationPage';
-
-
-import TrainingCoursesPage from './pages/TrainingCoursesPage';
 import ContactUsPage from './pages/ContactUsPage';
 import MembershipsPage from './pages/MembershipsPage';
 import ActivitiesPage from './pages/ActivitiesPage';
 import AgreementsPage from './pages/AgreementsPage';
 import AffiliatedCentersPage from './pages/AffiliatedCentersPage';
+import MagazinePage from './pages/MagazinePage';
+import PublicationsPage from './pages/PublicationsPage';
+
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
@@ -40,6 +41,9 @@ function App() {
     case '/committee':
       Component = CommitteePage;
       break;
+    case '/presidents':
+      Component = PresidentsPage;
+      break;
     case '/arbitration-services':
       Component = ArbitrationServicesPage;
       break;
@@ -61,10 +65,11 @@ function App() {
     case '/arab-engineers-federation':
       Component = ArabEngineersFederationPage;
       break;
-
-
-    case '/training-courses':
-      Component = TrainingCoursesPage;
+    case '/magazine':
+      Component = MagazinePage;
+      break;
+    case '/publications':
+      Component = PublicationsPage;
       break;
     case '/contact-us':
       Component = ContactUsPage;

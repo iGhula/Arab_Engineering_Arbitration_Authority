@@ -1,19 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Quote, User } from 'lucide-react';
+import { Quote, User, Mail, Phone } from 'lucide-react';
 
 const CommitteeSection = ({ hideTitle = true }) => {
   const members = [
-    { name: "م. أمحمد غولة - ليبيا", role: "رئيس اللجنة التنفيذية", image: "/members/m_ghoula.png" },
-    { name: "م. جودت يغمور - الاردن", role: "عضو اللجنة التنفيذية", image: null },
-    { name: "م. فؤاد الكندي - عُمان", role: "عضو اللجنة التنفيذية", image: null },
-    { name: "م. طارق العشماوي - فلسطين", role: "عضو اللجنة التنفيذية", image: null },
-    { name: "م. توفيق سنان - لبنان", role: "عضو اللجنة التنفيذية", image: null },
-    { name: "م. شادي بن خليفه - تونس", role: "عضو اللجنة التنفيذية", image: null },
-    { name: "م. ناصر المطيري - الكويت", role: "عضو اللجنة التنفيذية", image: "/members/n_mutairi.jpg" },
-    { name: "م. عمر سلام - العراق", role: "عضو اللجنة التنفيذية", image: null },
-    { name: "م. معتز طلبه - مصر", role: "عضو اللجنة التنفيذية", image: null },
-    { name: "م. فيصل الشريف - السعودية", role: "عضو اللجنة التنفيذية", image: null },
+    { name: "م. أمحمد غولة - ليبيا", role: "رئيس اللجنة التنفيذية", email: "eghula@gmail.com", phone: "00962790212312", image: "/members/m_ghoula.png" },
+    { name: "م. جودت يغمور - الأردن", role: "رئيس اللجنة التنفيذية", email: "j.yaghmour@ace-jor.com", phone: "00962795207408", image: null },
+    { name: "م. داود خلف - الأردن", role: "رئيس اللجنة التنفيذية", email: "daudskhalaf@yahoo.com", phone: "00962796445811", image: null },
+    { name: "م. محمد سعيد فتحة - لبنان", role: "نائب الرئيس", email: "fathasaid@gmail.com", phone: "0096137336716", image: null },
+    { name: "م. عبد الكريم سعدون - السعودية", role: "عضو اللجنة التنفيذية", email: "al_sadoun@saudieng.org", phone: "00966505291125", image: null },
+    { name: "د. إبراهيم الضبيب - السعودية", role: "عضو اللجنة التنفيذية", email: null, phone: "0096650514198", image: null },
+    { name: "م. فيصل الشريف - السعودية", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: null },
+    { name: "م. ناصر المطيري - الكويت", role: "عضو اللجنة التنفيذية", email: "nasserhalmutairi@gmail.com", phone: "0096599812097", image: "/members/n_mutairi.jpg" },
+    { name: "م. شادي بن خليفة - تونس", role: "عضو اللجنة التنفيذية", email: "bk.chady@gmail.com", phone: "0021699058192", image: null },
+    { name: "م. طارق العشماوي - فلسطين", role: "عضو اللجنة التنفيذية", email: "atmawi@hotmail.com", phone: "0599840684", image: null },
+    { name: "م. عمر سلام - العراق", role: "عضو اللجنة التنفيذية", email: "omar80_ce@yahoo.com", phone: "009647716085053", image: null },
+    { name: "م. محمد أبو زكي - عُمان", role: "عضو اللجنة التنفيذية", email: "mabuzaki@gmail.com", phone: "0096899448820", image: null },
+    { name: "م. فؤاد الكندي - عُمان", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: null },
+    { name: "د. شريف الهجان - مصر", role: "عضو اللجنة التنفيذية", email: "sherif@haggan-cab.org", phone: "01005236783", image: null },
+    { name: "م. محمد عبد الغني - مصر", role: "عضو اللجنة التنفيذية", email: "m.69.abdelghany@gmail.com", phone: "201001349405", image: null },
+    { name: "م. معتز طلبه - مصر", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: null },
+    { name: "م. توفيق سنان - لبنان", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: null },
   ];
 
   return (
@@ -85,10 +92,10 @@ const CommitteeSection = ({ hideTitle = true }) => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-[0_5px_20px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 group"
+              className="bg-white rounded-2xl overflow-hidden shadow-[0_5px_20px_rgba(0,0,0,0.03)] border border-gray-100 hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 group flex flex-col h-full"
             >
               {/* Member Image Area */}
-              <div className="w-full h-64 bg-gray-100 relative overflow-hidden flex items-center justify-center">
+              <div className="w-full h-64 shrink-0 bg-gray-100 relative overflow-hidden flex items-center justify-center">
                 {/* Fallback silhouette if no image */}
                 {!member.image ? (
                   <User className="w-24 h-24 text-gray-300" />
@@ -105,11 +112,28 @@ const CommitteeSection = ({ hideTitle = true }) => {
               </div>
 
               {/* Member Info */}
-              <div className="p-6 text-center bg-white relative z-10">
+              <div className="p-6 text-center bg-white relative z-10 flex flex-col grow">
                 <h4 className="text-lg font-bold text-primary mb-1 group-hover:text-secondary transition-colors duration-300">
                   {member.name}
                 </h4>
-                <p className="text-gray-400 text-sm">{member.role}</p>
+                <p className="text-gray-400 text-sm mb-4 font-bold">{member.role}</p>
+                
+                {(member.email || member.phone) && (
+                  <div className="mt-auto space-y-2 pt-4 border-t border-gray-100">
+                    {member.phone && (
+                      <div className="flex items-center justify-center gap-2 text-gray-500 text-sm" dir="ltr">
+                        <Phone className="w-4 h-4 text-secondary" />
+                        <span>{member.phone}</span>
+                      </div>
+                    )}
+                    {member.email && (
+                      <div className="flex items-center justify-center gap-2 text-gray-500 text-sm">
+                        <Mail className="w-4 h-4 text-secondary" />
+                        <span className="truncate max-w-[200px]" title={member.email}>{member.email}</span>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}
