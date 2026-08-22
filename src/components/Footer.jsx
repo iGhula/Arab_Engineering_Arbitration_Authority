@@ -18,55 +18,89 @@ const PhoneIcon = () => (
 );
 
 const Footer = () => {
+  const navigate = (e, path) => {
+    if (path === '#') return;
+    e.preventDefault();
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new PopStateEvent('popstate'));
+    if (path.includes('#')) {
+      const id = path.split('#')[1];
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  };
+
   return (
-    <footer className="bg-dark text-gray-300 py-20 relative overflow-hidden border-t border-white/5" dir="rtl">
+    <footer className="bg-dark text-gray-300 py-16 md:py-20 relative overflow-hidden border-t border-white/5" dir="rtl">
       {/* Decorative Premium Orbs */}
       <div className="absolute top-0 right-1/4 w-[300px] h-[300px] bg-primary/20 blur-[120px] rounded-full pointer-events-none"></div>
       <div className="absolute bottom-0 left-1/4 w-[300px] h-[300px] bg-secondary/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+      <div className="container mx-auto px-4 relative z-10 max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12 mb-12 md:mb-16">
 
-          {/* Right Column: Links (25%) */}
-          <div className="col-span-1 flex flex-col items-end">
-            <div className="flex flex-col items-start w-fit">
-              <h4 className="text-lg font-bold text-white mb-6">روابط مهمة</h4>
-              <ul className="space-y-4 text-sm text-gray-400">
-                <li><a href="#" className="hover:text-secondary hover:translate-x-[-4px] transition-all flex items-center justify-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary"></span> الرئيسية</a></li>
-                <li><a href="#" className="hover:text-secondary hover:translate-x-[-4px] transition-all flex items-center justify-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary"></span> الدورات التدريبية</a></li>
-                <li><a href="#" className="hover:text-secondary hover:translate-x-[-4px] transition-all flex items-center justify-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary"></span> إصدارات الهيئة</a></li>
-                <li><a href="#" className="hover:text-secondary hover:translate-x-[-4px] transition-all flex items-center justify-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary"></span> المؤتمرات والملتقيات</a></li>
-                <li><a href="#" className="hover:text-secondary hover:translate-x-[-4px] transition-all flex items-center justify-start gap-2"><span className="w-1.5 h-1.5 rounded-full bg-secondary"></span> الصلح والوساطة والتحكيم</a></li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Middle Column: Logo & Desc (50%) */}
-          <div className="col-span-1 md:col-span-2 flex flex-col items-center text-center">
+          {/* Logo & Desc Column (First on Mobile & Desktop Right) */}
+          <div className="col-span-1 md:col-span-2 flex flex-col items-center md:items-start text-center md:text-right">
             <div className="mb-6">
-              <img src="/logo.png" alt="الهيئة العربية للتحكيم الهندسي" className="h-24 w-auto object-contain drop-shadow-md hover:opacity-90 transition-opacity" />
+              <img src="/logo.png" alt="الهيئة العربية للتحكيم الهندسي" className="h-20 md:h-24 w-auto object-contain drop-shadow-md hover:opacity-90 transition-opacity" />
             </div>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-md mx-auto">
-              احدى الهيئات التخصصية في اتحاد المهندسين العرب والتي تأسست بناءا على قرار المجلس الاعلى للاتحاد سنة (2010) وتولى رئاسة اللجنة التنفيذية للهيئة عدد من الزملاء
+            <p className="text-gray-400 text-sm leading-relaxed max-w-md">
+              إحدى الهيئات التخصصية في اتحاد المهندسين العرب والتي تأسست بناءً على قرار المجلس الأعلى للاتحاد سنة (2010)، وتولى رئاسة اللجنة التنفيذية للهيئة عدد من الزملاء.
             </p>
           </div>
 
-          {/* Left Column: Contact & Socials (25%) */}
-          <div className="col-span-1 flex flex-col items-start text-right">
-            <h4 className="text-lg font-bold text-white mb-6">تواصل معنا</h4>
-            <ul className="space-y-4 text-sm text-gray-400 mb-8 w-full">
-              <li className="flex items-center gap-3 w-full hover:text-white transition-colors cursor-pointer justify-start">
-                <span className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-secondary flex-shrink-0"><MailIcon /></span>
-                <span dir="ltr" className="tracking-wider text-right">info@aeab.sa.com</span>
+          {/* Important Links Column */}
+          <div className="col-span-1 flex flex-col items-center md:items-start text-center md:text-right">
+            <h4 className="text-lg font-bold text-white mb-4 md:mb-6">روابط مهمة</h4>
+            <ul className="space-y-3 text-sm text-gray-400">
+              <li>
+                <a href="/" onClick={(e) => navigate(e, '/')} className="hover:text-secondary transition-colors inline-flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span> الرئيسية
+                </a>
               </li>
-              <li className="flex items-center gap-3 w-full hover:text-white transition-colors cursor-pointer justify-start">
-                <span className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-secondary flex-shrink-0"><PhoneIcon /></span>
-                <span dir="ltr" className="tracking-wider font-mono text-right">+966 50 555 5840</span>
+              <li>
+                <a href="/courses" onClick={(e) => navigate(e, '/courses')} className="hover:text-secondary transition-colors inline-flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span> الدورات التدريبية
+                </a>
+              </li>
+              <li>
+                <a href="/publications" onClick={(e) => navigate(e, '/publications')} className="hover:text-secondary transition-colors inline-flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span> إصدارات الهيئة
+                </a>
+              </li>
+              <li>
+                <a href="/activities#conferences" onClick={(e) => navigate(e, '/activities#conferences')} className="hover:text-secondary transition-colors inline-flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span> المؤتمرات والملتقيات
+                </a>
+              </li>
+              <li>
+                <a href="/arbitration-services" onClick={(e) => navigate(e, '/arbitration-services')} className="hover:text-secondary transition-colors inline-flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span> الصلح والوساطة والتحكيم
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact & Socials Column */}
+          <div className="col-span-1 flex flex-col items-center md:items-start text-center md:text-right">
+            <h4 className="text-lg font-bold text-white mb-4 md:mb-6">تواصل معنا</h4>
+            <ul className="space-y-4 text-sm text-gray-400 mb-6 w-full">
+              <li className="flex items-center justify-center md:justify-start gap-3 hover:text-white transition-colors cursor-pointer">
+                <span className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-secondary shrink-0"><MailIcon /></span>
+                <span dir="ltr" className="tracking-wider">info@aeab.sa.com</span>
+              </li>
+              <li className="flex items-center justify-center md:justify-start gap-3 hover:text-white transition-colors cursor-pointer">
+                <span className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-secondary shrink-0"><PhoneIcon /></span>
+                <span dir="ltr" className="tracking-wider font-mono">+966 50 555 5840</span>
               </li>
             </ul>
 
-            <h4 className="text-sm font-bold text-gray-500 mb-4">تابعنا علي</h4>
-            <div className="flex gap-3 justify-start w-full">
+            <h4 className="text-sm font-bold text-gray-500 mb-3">تابعنا على</h4>
+            <div className="flex gap-3 justify-center md:justify-start">
               <a href="#" className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#FF0000] hover:border-[#FF0000] hover:scale-110 hover:text-white transition-all duration-300 text-gray-400">
                 <YouTubeIcon />
               </a>
@@ -83,7 +117,7 @@ const Footer = () => {
 
         {/* Bottom Copyright */}
         <div className="pt-8 border-t border-white/10 text-center text-sm text-gray-500">
-          <p>@ جميع الحقوق محفوظة الهيئة العربية للتحكيم الهندسي </p>
+          <p>© جميع الحقوق محفوظة للهيئة العربية للتحكيم الهندسي</p>
         </div>
       </div>
     </footer>
