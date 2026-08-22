@@ -37,6 +37,23 @@ const SecretaryMessageSection = () => {
           <Quote className="absolute top-8 left-8 w-24 h-24 text-gray-100 -scale-x-100" />
           
           <div className="relative z-10">
+            {/* Top Author Header */}
+            <div className="flex flex-col sm:flex-row items-center justify-start gap-6 border-b border-gray-200 pb-8 mb-8">
+              <img 
+                src="/عادل الحديثي.jpeg" 
+                alt="الدكتور المهندس عادل الحديثي" 
+                className="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-4 border-white shadow-2xl shrink-0" 
+              />
+              <div className="text-center sm:text-right">
+                <h3 className="text-2xl md:text-3xl font-bold text-primary mb-2">
+                  الدكتور المهندس عادل الحديثي
+                </h3>
+                <p className="text-secondary font-bold text-lg md:text-xl">
+                  الأمين العام لاتحاد المهندسين العرب
+                </p>
+              </div>
+            </div>
+
             <p className="text-gray-800 leading-relaxed mb-6 font-bold text-lg">
               بسم الله الرحمن الرحيم، والصلاة والسلام على سيدنا محمد وعلى آله وصحبه أجمعين.
             </p>
@@ -64,17 +81,9 @@ const SecretaryMessageSection = () => {
             <p className="text-gray-600 leading-relaxed mb-6 text-lg">
               ختاماً، أتوجه بالشكر الجزيل لكافة الإخوة القائمين على الهيئة العربية للتحكيم الهندسي ولأعضاء مجلس إدارتها ولجانها الفنية على جهودهم المخلصة. وأدعوكم جميعاً للاستفادة من الخدمات والأنشطة التي يقدمها الموقع، متمنياً للجميع دوام التوفيق والنجاح.
             </p>
-            <p className="text-gray-800 leading-relaxed mb-8 font-bold text-lg">
+            <p className="text-gray-800 leading-relaxed mb-4 font-bold text-lg">
               والسلام عليكم ورحمة الله وبركاته.
             </p>
-
-            <div className="flex items-center justify-end gap-6 border-t border-gray-200 pt-8 mt-8">
-              <div className="flex flex-col items-end">
-                <h4 className="text-2xl font-bold text-primary mb-2">الدكتور المهندس عادل الحديثي</h4>
-                <p className="text-gray-500 text-lg">الأمين العام لاتحاد المهندسين العرب</p>
-              </div>
-              <img src="/عادل الحديثي.jpeg" alt="الدكتور المهندس عادل الحديثي" className="w-24 h-24 rounded-full object-cover border-4 border-white shadow-lg" />
-            </div>
           </div>
         </motion.div>
       </div>

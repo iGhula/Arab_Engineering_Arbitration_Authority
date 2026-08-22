@@ -14,22 +14,26 @@ const leadership = [
   {
     period: "2012 – 2014",
     president: "م. محمد ماجد خلوصي (مصر)",
-    notes: "أول رئيس للهيئة منذ انتخابه في الجمعية العامة بتاريخ 2012/7/10؛ نائب الرئيس د. منذر موسى الساكت (الأردن)"
+    notes: "أول رئيس للهيئة منذ انتخابه في الجمعية العامة بتاريخ 2012/7/10؛ نائب الرئيس د. منذر موسى الساكت (الأردن)",
+    image: "/محمد ماجد خلوصي.jpeg"
   },
   {
     period: "2015 – 2020",
     president: "م. داود خلف (الأردن)",
-    notes: "انتُخب في اجتماع الجمعية العامة بتاريخ 2014/12/20، وأعيد انتخابه بتاريخ 2017/12/9؛ نائب الرئيس طوال الفترة م. محمد سعيد فتحة (لبنان)"
+    notes: "انتُخب في اجتماع الجمعية العامة بتاريخ 2014/12/20، وأعيد انتخابه بتاريخ 2017/12/9؛ نائب الرئيس طوال الفترة م. محمد سعيد فتحة (لبنان)",
+    image: "/داوود خلف.jpeg"
   },
   {
     period: "2021 – 2023",
     president: "م. جودت جوده يغمور (الأردن)",
-    notes: "انتُخب في اجتماع الجمعية العمومية بتاريخ 2020/12/1، ونائب الرئيس م. محمد سعيد فتحة (لبنان)"
+    notes: "انتُخب في اجتماع الجمعية العمومية بتاريخ 2020/12/1، ونائب الرئيس م. محمد سعيد فتحة (لبنان)",
+    image: "/جودت يغمور.jpeg"
   },
   {
     period: "2024 – حتى تاريخه",
     president: "أ.م. امحمد عبدالرحمن غولة (ليبيا)",
-    notes: "رئيس اللجنة التنفيذية الحالي؛ ونائباه م. جودت يغمور (الأردن) وم. فؤاد الكندي (عُمان)"
+    notes: "رئيس اللجنة التنفيذية الحالي؛ ونائباه م. جودت يغمور (الأردن) وم. فؤاد الكندي (عُمان)",
+    image: "/members/m_ghoula.png"
   }
 ];
 
@@ -112,12 +116,25 @@ const HistorySection = () => {
                   </div>
                 </div>
 
-                <div className="mb-6">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Users className="w-5 h-5 text-secondary" />
-                    <span className="text-sm font-bold text-gray-500">رئيس الهيئة / اللجنة التنفيذية</span>
+                <div className="flex items-center gap-4 mb-6">
+                  {item.image ? (
+                    <img 
+                      src={item.image} 
+                      alt={item.president} 
+                      className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-primary/20 shadow-md shrink-0" 
+                    />
+                  ) : (
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+                      <Users className="w-8 h-8" />
+                    </div>
+                  )}
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <Users className="w-4 h-4 text-secondary" />
+                      <span className="text-xs font-bold text-gray-500">رئيس الهيئة / اللجنة التنفيذية</span>
+                    </div>
+                    <p className="text-lg md:text-xl font-bold text-primary">{item.president}</p>
                   </div>
-                  <p className="text-xl font-bold text-primary mr-8">{item.president}</p>
                 </div>
 
                 <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">

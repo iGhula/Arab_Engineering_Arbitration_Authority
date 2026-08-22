@@ -6,20 +6,20 @@ const CommitteeSection = ({ hideTitle = true }) => {
   const members = [
     { name: "م. جودت يغمور - الأردن", role: "نائب اللجنة التنفيذية", email: "j.yaghmour@ace-jor.com", phone: "00962795207408", image: "/جودت يغمور.jpeg" },
     { name: "م. فؤاد الكندي - عُمان", role: "نائب اللجنة التنفيذية", email: null, phone: null, image: "/فؤاد الكندي.jpeg" },
-    { name: "م. داود خلف - الأردن", role: "رئيس اللجنة التنفيذية", email: "daudskhalaf@yahoo.com", phone: "00962796445811", image: "/داوود خلف.jpeg" },
-    { name: "م. محمد سعيد فتحة - لبنان", role: "نائب الرئيس", email: "fathasaid@gmail.com", phone: "0096137336716", image: null },
-    { name: "م. عبد الكريم سعدون - السعودية", role: "عضو اللجنة التنفيذية", email: "al_sadoun@saudieng.org", phone: "00966505291125", image: null },
-    { name: "د. إبراهيم الضبيب - السعودية", role: "عضو اللجنة التنفيذية", email: null, phone: "0096650514198", image: null },
+    //{ name: "م. داود خلف - الأردن", role: "رئيس اللجنة التنفيذية", email: "daudskhalaf@yahoo.com", phone: "00962796445811", image: "/داوود خلف.jpeg" },
+    //{ name: "م. محمد سعيد فتحة - لبنان", role: "نائب الرئيس", email: "fathasaid@gmail.com", phone: "0096137336716", image: null },
+    //{ name: "م. عبد الكريم سعدون - السعودية", role: "عضو اللجنة التنفيذية", email: "al_sadoun@saudieng.org", phone: "00966505291125", image: null },
+    //{ name: "د. إبراهيم الضبيب - السعودية", role: "عضو اللجنة التنفيذية", email: null, phone: "0096650514198", image: null },
     { name: "م. فيصل الشريف - السعودية", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: "/فيصل الشريف.jpeg" },
     { name: "م. ناصر المطيري - الكويت", role: "عضو اللجنة التنفيذية", email: "nasserhalmutairi@gmail.com", phone: "0096599812097", image: "/members/n_mutairi.jpg" },
     { name: "م. شادي بن خليفة - تونس", role: "عضو اللجنة التنفيذية", email: "bk.chady@gmail.com", phone: "0021699058192", image: "/شادي بن خليفة.jpeg" },
     { name: "م. طارق العتماوي - فلسطين", role: "عضو اللجنة التنفيذية", email: "atmawi@hotmail.com", phone: "0599840684", image: "/طارق العتماوي.jpg" },
     { name: "م. عمر سلام - العراق", role: "عضو اللجنة التنفيذية", email: "omar80_ce@yahoo.com", phone: "009647716085053", image: "/عمر سلام.jpeg" },
-    { name: "م. محمد أبو زكي - عُمان", role: "عضو اللجنة التنفيذية", email: "mabuzaki@gmail.com", phone: "0096899448820", image: null },
-    { name: "د. شريف الهجان - مصر", role: "عضو اللجنة التنفيذية", email: "sherif@haggan-cab.org", phone: "01005236783", image: null },
-    { name: "م. محمد عبد الغني - مصر", role: "عضو اللجنة التنفيذية", email: "m.69.abdelghany@gmail.com", phone: "201001349405", image: null },
+    //{ name: "م. محمد أبو زكي - عُمان", role: "عضو اللجنة التنفيذية", email: "mabuzaki@gmail.com", phone: "0096899448820", image: null },
+    //{ name: "د. شريف الهجان - مصر", role: "عضو اللجنة التنفيذية", email: "sherif@haggan-cab.org", phone: "01005236783", image: null },
+    //{ name: "م. محمد عبد الغني - مصر", role: "عضو اللجنة التنفيذية", email: "m.69.abdelghany@gmail.com", phone: "201001349405", image: null },
     { name: "م. معتز طلبه - مصر", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: "/معتز طلبه.jpg" },
-    { name: "م. توفيق سنان - لبنان", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: "/توفيق سنان.jpg" },
+    { name: "م. توفيق سنان - لبنان", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: null },
   ];
 
   return (
