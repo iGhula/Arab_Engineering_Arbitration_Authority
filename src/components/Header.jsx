@@ -92,9 +92,8 @@ const Header = () => {
                     <div className="flex flex-col py-2">
                       <a href="/vision-mission" onClick={(e) => navigate(e, '/vision-mission')} className={`px-4 py-2 hover:bg-white/10 transition-colors text-right ${isActive('/vision-mission') ? 'text-secondary font-bold' : ''}`}>الرؤية والرسالة</a>
                       <a href="/vision-mission#goals" onClick={(e) => navigate(e, '/vision-mission#goals')} className={`px-4 py-2 hover:bg-white/10 transition-colors text-right ${isActive('/vision-mission#goals') ? 'text-secondary font-bold' : ''}`}>أهداف الهيئة</a>
-
+                      <a href="/vision-mission#report" onClick={(e) => navigate(e, '/vision-mission#report')} className={`px-4 py-2 hover:bg-white/10 transition-colors text-right ${isActive('/vision-mission#report') ? 'text-secondary font-bold' : ''}`}>تقرير عام 2026</a>
                       <a href="/committee" onClick={(e) => navigate(e, '/committee')} className={`px-4 py-2 hover:bg-white/10 transition-colors text-right ${isActive('/committee') ? 'text-secondary font-bold' : ''}`}>أعضاء اللجنة التنفيذية</a>
-
                     </div>
                   </div>
                 )}
@@ -115,9 +114,11 @@ const Header = () => {
                 {activeDropdown === 'activities' && (
                   <div className="absolute top-full right-0 w-48 bg-primary shadow-lg border-t-2 border-secondary">
                     <div className="flex flex-col py-2">
-                      <a href="/activities" onClick={(e) => navigate(e, '/activities')} className={`px-4 py-2 hover:bg-white/10 transition-colors text-right ${isActive('/activities') ? 'text-secondary font-bold' : ''}`}>تقرير عام 2026</a>
+                      <a href="/activities" onClick={(e) => navigate(e, '/activities')} className={`px-4 py-2 hover:bg-white/10 transition-colors text-right ${isActive('/activities') ? 'text-secondary font-bold' : ''}`}>النشاطات</a>
+                      <a href="/vision-mission#report" onClick={(e) => navigate(e, '/vision-mission#report')} className={`px-4 py-2 hover:bg-white/10 transition-colors text-right ${isActive('/vision-mission#report') ? 'text-secondary font-bold' : ''}`}>تقرير عام 2026</a>
                       <a href="/activities#conferences" onClick={(e) => navigate(e, '/activities#conferences')} className={`px-4 py-2 hover:bg-white/10 transition-colors text-right ${isActive('/activities#conferences') ? 'text-secondary font-bold' : ''}`}>المؤتمرات والملتقيات</a>
                       <a href="/activities#seminars" onClick={(e) => navigate(e, '/activities#seminars')} className={`px-4 py-2 hover:bg-white/10 transition-colors text-right ${isActive('/activities#seminars') ? 'text-secondary font-bold' : ''}`}>الندوات</a>
+                      <a href="/activities#gallery" onClick={(e) => navigate(e, '/activities#gallery')} className={`px-4 py-2 hover:bg-white/10 transition-colors text-right ${isActive('/activities#gallery') ? 'text-secondary font-bold' : ''}`}>معرض الصور</a>
                     </div>
                   </div>
                 )}
@@ -216,8 +217,8 @@ const Header = () => {
             <div className="py-2">
               <div className="px-4 py-2 text-sm text-gray-500 font-bold mb-1">عن الهيئة</div>
               <a href="/vision-mission" onClick={(e) => navigate(e, '/vision-mission')} className={`block py-2 px-6 rounded-lg hover:bg-primary/10 ${isActive('/vision-mission') ? 'bg-primary/20 text-secondary font-bold' : 'text-gray-300'}`}>الرؤية والرسالة</a>
+              <a href="/vision-mission#report" onClick={(e) => navigate(e, '/vision-mission#report')} className={`block py-2 px-6 rounded-lg hover:bg-primary/10 ${isActive('/vision-mission#report') ? 'bg-primary/20 text-secondary font-bold' : 'text-gray-300'}`}>تقرير عام 2026</a>
               <a href="/committee" onClick={(e) => navigate(e, '/committee')} className={`block py-2 px-6 rounded-lg hover:bg-primary/10 ${isActive('/committee') ? 'bg-primary/20 text-secondary font-bold' : 'text-gray-300'}`}>أعضاء اللجنة التنفيذية</a>
-
             </div>
 
             <a href="/arbitration-services" onClick={(e) => navigate(e, '/arbitration-services')} className={`py-3 px-4 rounded-lg hover:bg-primary/20 transition-colors ${isActive('/arbitration-services') ? 'bg-primary/20 text-secondary font-bold' : ''}`}>الصلح والوساطة والتحكيم</a>
@@ -225,9 +226,11 @@ const Header = () => {
             
             <div className="py-2">
               <div className="px-4 py-2 text-sm text-gray-500 font-bold mb-1">نشاطات</div>
-              <a href="/activities" onClick={(e) => navigate(e, '/activities')} className={`block py-2 px-6 rounded-lg hover:bg-primary/10 ${isActive('/activities') ? 'bg-primary/20 text-secondary font-bold' : 'text-gray-300'}`}>تقرير عام 2026</a>
+              <a href="/activities" onClick={(e) => navigate(e, '/activities')} className={`block py-2 px-6 rounded-lg hover:bg-primary/10 ${isActive('/activities') ? 'bg-primary/20 text-secondary font-bold' : 'text-gray-300'}`}>النشاطات</a>
+              <a href="/vision-mission#report" onClick={(e) => navigate(e, '/vision-mission#report')} className={`block py-2 px-6 rounded-lg hover:bg-primary/10 ${isActive('/vision-mission#report') ? 'bg-primary/20 text-secondary font-bold' : 'text-gray-300'}`}>تقرير عام 2026</a>
               <a href="/activities#conferences" onClick={(e) => navigate(e, '/activities#conferences')} className={`block py-2 px-6 rounded-lg hover:bg-primary/10 ${isActive('/activities#conferences') ? 'bg-primary/20 text-secondary font-bold' : 'text-gray-300'}`}>المؤتمرات والملتقيات</a>
               <a href="/activities#seminars" onClick={(e) => navigate(e, '/activities#seminars')} className={`block py-2 px-6 rounded-lg hover:bg-primary/10 ${isActive('/activities#seminars') ? 'bg-primary/20 text-secondary font-bold' : 'text-gray-300'}`}>الندوات</a>
+              <a href="/activities#gallery" onClick={(e) => navigate(e, '/activities#gallery')} className={`block py-2 px-6 rounded-lg hover:bg-primary/10 ${isActive('/activities#gallery') ? 'bg-primary/20 text-secondary font-bold' : 'text-gray-300'}`}>معرض الصور</a>
             </div>
 
             <a href="/agreements" onClick={(e) => navigate(e, '/agreements')} className={`py-3 px-4 rounded-lg hover:bg-primary/20 transition-colors ${isActive('/agreements') ? 'bg-primary/20 text-secondary font-bold' : ''}`}>اتفاقيات</a>

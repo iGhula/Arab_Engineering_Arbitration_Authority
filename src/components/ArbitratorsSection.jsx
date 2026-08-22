@@ -7,7 +7,7 @@ import rawArbitrators from '../data/parsed_arbitrators.json';
 const arbitratorsList = rawArbitrators.filter(a => a.name);
 
 const executiveMembers = [
-  { id: 'exec-17', name: "م.إمحمد غولة", category: "الرئاسية" },
+  { id: 'exec-17', name: "م.إمحمد غولة - ليبيا", category: "الرئاسية" },
   { id: 'exec-1', name: "م. جودت يغمور - الأردن", category: "الرئاسية" },
   { id: 'exec-2', name: "م. فؤاد الكندي - عُمان", category: "الرئاسية" },
   { id: 'exec-3', name: "م. فيصل الشريف - السعودية", category: "الرئاسية" },

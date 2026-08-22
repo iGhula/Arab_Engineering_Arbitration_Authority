@@ -14,21 +14,6 @@ const CoursesSection = () => {
         </div>
       </section>
 
-      {/* Schedule Section */}
-      <section id="schedule" className="py-24 bg-gray-50 border-t border-gray-200">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">دورات سابقة</h2>
-            <div className="w-16 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
-            <p className="text-gray-500 mt-4 text-lg">سيتم إضافة أرشيف الدورات السابقة قريباً...</p>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 };

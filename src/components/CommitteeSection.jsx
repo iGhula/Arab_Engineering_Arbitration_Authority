@@ -19,7 +19,7 @@ const CommitteeSection = ({ hideTitle = true }) => {
     //{ name: "د. شريف الهجان - مصر", role: "عضو اللجنة التنفيذية", email: "sherif@haggan-cab.org", phone: "01005236783", image: null },
     //{ name: "م. محمد عبد الغني - مصر", role: "عضو اللجنة التنفيذية", email: "m.69.abdelghany@gmail.com", phone: "201001349405", image: null },
     { name: "م. معتز طلبه - مصر", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: "/معتز طلبه.jpg" },
-    { name: "م. توفيق سنان - لبنان", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: null },
+    { name: "م. توفيق سنان - لبنان", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: "/توفيق سنان.jpg" },
   ];
 
   return (
