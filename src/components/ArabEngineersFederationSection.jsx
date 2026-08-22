@@ -3,28 +3,6 @@ import { motion } from 'framer-motion';
 import { Landmark, Users, Briefcase, FileSignature, ExternalLink } from 'lucide-react';
 
 const ArabEngineersFederationSection = () => {
-  const departments = [
-    {
-      num: "01",
-      title: "المجلس الأعلى",
-      icon: <Landmark className="w-12 h-12 text-secondary mb-4" strokeWidth={1.5} />
-    },
-    {
-      num: "02",
-      title: "المكتب التنفيذي",
-      icon: <Users className="w-12 h-12 text-secondary mb-4" strokeWidth={1.5} />
-    },
-    {
-      num: "03",
-      title: "الأمانة العامة",
-      icon: <Briefcase className="w-12 h-12 text-secondary mb-4" strokeWidth={1.5} />
-    },
-    {
-      num: "04",
-      title: "النقابات واللجنة الفنية",
-      icon: <FileSignature className="w-12 h-12 text-secondary mb-4" strokeWidth={1.5} />
-    }
-  ];
 
   return (
     <div className="bg-white min-h-screen">
@@ -40,13 +18,7 @@ const ArabEngineersFederationSection = () => {
         <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-block mb-6 px-5 py-1.5 rounded-full bg-white/10 text-secondary border border-secondary/30 backdrop-blur-md text-sm font-bold tracking-wider"
-          >
-            روابط مهمة
-          </motion.div>
+
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -67,7 +39,7 @@ const ArabEngineersFederationSection = () => {
       {/* About Section */}
       <section className="py-24 -mt-10 relative z-20">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
             
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
@@ -78,12 +50,12 @@ const ArabEngineersFederationSection = () => {
               <div className="absolute -top-6 -right-6 w-32 h-32 bg-secondary/20 rounded-full blur-2xl z-0"></div>
               <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-primary/10 rounded-full blur-3xl z-0"></div>
               
-              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800" alt="Engineers Collaboration" className="rounded-2xl shadow-2xl w-full relative z-10" />
+              <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&q=80&w=800" alt="Construction Collaboration" className="rounded-2xl shadow-2xl w-full relative z-10" />
               
               {/* Floating Decorative Badge */}
               <div className="absolute -top-8 -right-8 bg-white p-4 rounded-xl shadow-xl z-20 border-t-4 border-secondary hidden md:block">
                 <div className="w-16 h-16 bg-primary/5 rounded-lg flex items-center justify-center">
-                  <Landmark className="w-8 h-8 text-primary" />
+                  <img src="/eee.jpeg" alt="Icon" className="w-12 h-12 object-contain rounded-lg" />
                 </div>
               </div>
             </motion.div>
@@ -101,7 +73,9 @@ const ArabEngineersFederationSection = () => {
                 إن اتحاد المهندسين العرب هو منظمة هندسية عربية توحد الأهداف والعمل المستقبلي والتعاون لكل المهندسين العرب. التعاون والتنسيق هو الهدف الرئيسي للاتحاد الهندسي العربي ولغرض زيادة حالة المهندسين العرب ومهنتهم بخدمة المجتمع العربي وقضاياه المختلفة سواء إن كانت علمياً ، تكنولوجياً أو تعليمياً وخدمة هدف الأمة العربية في بناء وحدتها ، والاستقلال السياسي والاقتصادي.
               </p>
               <a 
-                href="#"
+                href="https://arabfedeng.org/%d8%b9%d9%86-%d8%a7%d9%84%d8%a7%d8%aa%d8%ad%d8%a7%d8%af/"
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-secondary transition-colors duration-300 group"
               >
                 <span>إذهب إلى الموقع</span>
@@ -139,40 +113,7 @@ const ArabEngineersFederationSection = () => {
         </div>
       </section>
 
-      {/* Departments Section */}
-      <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-6">
-              <span className="text-secondary">أقسام</span> إتحاد المهندسين العرب
-            </h2>
-          </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {departments.map((dept, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="flex flex-col items-center text-center group"
-              >
-                <div className="w-24 h-24 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors duration-300 border border-gray-100 shadow-sm group-hover:shadow-md">
-                  {dept.icon}
-                </div>
-                <div className="text-gray-400 font-bold mb-2 tracking-widest">{dept.num}</div>
-                <h3 className="text-xl font-bold text-primary">{dept.title}</h3>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
     </div>
   );

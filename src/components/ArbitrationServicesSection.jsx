@@ -40,20 +40,20 @@ const ArbitrationServicesSection = ({ hideTitle = true }) => {
   return (
     <section className="py-24 bg-gray-50 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10 max-w-6xl">
-        
+
         {/* Title */}
         {!hideTitle && (
-          <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-16 text-center"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
-            الصلح والوساطة <span className="text-secondary">والتحكيم</span>
-          </h2>
-          <div className="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+              الصلح والوساطة <span className="text-secondary">والتحكيم</span>
+            </h2>
+            <div className="w-24 h-1 bg-secondary mx-auto rounded-full"></div>
+          </motion.div>
         )}
 
         {/* 3 Cards */}
@@ -81,7 +81,7 @@ const ArbitrationServicesSection = ({ hideTitle = true }) => {
         {/* Info Split Section */}
         <div className="flex flex-col lg:flex-row items-center gap-16 mb-24">
           {/* Image Side (Right in visual, but using standard flex order) */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -91,14 +91,14 @@ const ArbitrationServicesSection = ({ hideTitle = true }) => {
               <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
               {/* Fallback image placeholder representing the engineering arbitration image */}
               <div className="w-full aspect-[4/3] bg-gray-300 flex flex-col items-center justify-center text-gray-500 relative">
-                 {/* Real image would go here, representing the suits & hardhat from the screenshot */}
-                 <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&q=80&w=800" alt="Mediation and Arbitration" className="absolute inset-0 w-full h-full object-cover" />
+                {/* Real image would go here, representing the suits & hardhat from the screenshot */}
+                <img src="https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&q=80&w=800" alt="Mediation and Arbitration" className="absolute inset-0 w-full h-full object-cover" />
               </div>
             </div>
           </motion.div>
 
           {/* Text Side (Left in visual) */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -108,56 +108,48 @@ const ArbitrationServicesSection = ({ hideTitle = true }) => {
               ما تقوم به <span className="text-secondary">الهيئة العربية للتحكيم</span>
             </h3>
             <p className="text-gray-500 leading-loose text-lg mb-8">
-              إن اتحاد المهندسين العرب هو منظمة هندسية عربية توحد الأهداف والعمل المستقبلي والتعاون لكل المهندسين العرب. التعاون والتنسيق هو الهدف الرئيسي للاتحاد الهندسي العربي ولغرض زيادة حالة المهندسين العرب ومهنتهم بخدمة المجتمع العربي وقضاياه المختلفة سواء إن كانت علمياً ، تكنولوجياً أو تعليمياً وخدمة هدف الأمة العربية في بناء وحدتها، والاستقلال السياسي والاقتصادي.
+              إن اتحاد المهندسين العرب هو منظمة هندسية عربية توحد الأهداف والعمل المستقبلي والتعاون لكل المهندسين العرب. التعاون والتنسيق هو الهدف الرئيسي للاتحاد الهندسي العربي ولغرض زيادة تطوير المهندسين العرب ومهنتهم بخدمة المجتمع العربي وقضاياه المختلفة سواء إن كانت علمياً ، تكنولوجياً أو تعليمياً وخدمة هدف الأمة العربية في بناء وحدتها، والاستقلال السياسي والاقتصادي.
             </p>
-            
-            <a 
-              href="/اجراءات وقواعد التحكيم الهندسي.pdf#toolbar=0"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-secondary text-white rounded-lg font-bold hover:bg-secondary/90 transition-colors shadow-lg"
-            >
-              <span>عرض إجراءات وقواعد التحكيم الهندسي</span>
-              <Scale className="w-5 h-5" />
-            </a>
+
+
           </motion.div>
         </div>
 
         {/* Two Lists Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white p-12 rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.02)] border border-gray-100">
-          
+
           {/* Right List */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-right"
           >
-            <h4 className="text-2xl font-bold text-secondary mb-8">توضيح حجم المنازعات الهندسية</h4>
-            <ul className="space-y-4">
+            <h4 className="text-2xl font-bold text-secondary mb-8 text-center">توضيح حجم المنازعات الهندسية</h4>
+            <ul className="space-y-4" dir="rtl">
               {disputeScaleList.map((item, idx) => (
-                <li key={idx} className="flex items-center justify-end gap-3 text-gray-500">
-                  <span>{item}</span>
+                <li key={idx} className="flex items-center justify-start gap-3 text-gray-500">
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
           </motion.div>
 
           {/* Left List */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="text-right"
           >
-            <h4 className="text-2xl font-bold text-secondary mb-8">تأثير المنازعات الهندسية</h4>
-            <ul className="space-y-4">
+            <h4 className="text-2xl font-bold text-secondary mb-8 text-center">تأثير المنازعات الهندسية</h4>
+            <ul className="space-y-4" dir="rtl">
               {disputeImpactList.map((item, idx) => (
-                <li key={idx} className="flex items-center justify-end gap-3 text-gray-500">
-                  <span>{item}</span>
+                <li key={idx} className="flex items-center justify-start gap-3 text-gray-500">
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>

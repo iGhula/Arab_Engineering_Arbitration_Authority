@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import PageHero from '../components/PageHero';
-// import Header from '../components/Header';
 import Footer from '../components/Footer';
-import FunctionsSection from '../components/FunctionsSection';
+import CoursesSection from '../components/CoursesSection';
 
-const FunctionsPage = () => {
+const CoursesPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -16,10 +15,8 @@ const FunctionsPage = () => {
       <Header />
       
       <main className="flex-grow pt-24 bg-gray-50 relative z-10">
-        <PageHero tag="عن الهيئة" title="مهام الهيئة" />
-        <div className="-mt-16 relative z-20">
-        <FunctionsSection />
-              </div>
+        <PageHero tag="التدريب والتطوير" title="الدورات التدريبية" />
+        <CoursesSection />
       </main>
 
       <Footer />
@@ -27,4 +24,4 @@ const FunctionsPage = () => {
   );
 };
 
-export default FunctionsPage;
+export default CoursesPage;

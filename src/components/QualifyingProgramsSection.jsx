@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, ChevronDown, Calendar, BookOpen, Users, GraduationCap, Award, FileSignature, Landmark, Building, History } from 'lucide-react';
+import { CheckCircle2, ChevronDown, Calendar, BookOpen, Users, GraduationCap, Award, FileSignature, Landmark, Building, History, Laptop } from 'lucide-react';
 
 const QualifyingProgramsSection = ({ hideTitle = true }) => {
   const dummyTextIntro = "المستهدفون بهذا البرنامج هم جميع أطراف العقد مثل المالك، المهندس، المقاول، العاملين في إدارة العقود، والمسؤولون عن حل المنازعات في العقود. ويتم في هذا البرنامج تدريب المشاركين على ما يلي :";
@@ -30,14 +30,14 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
       desc: "برنامج متخصص لإعداد وتأهيل المهندسين والقانونيين للعمل كأعضاء في مجالس فض النزاعات وتطوير مهاراتهم.",
       icon: <Users className="w-8 h-8 text-secondary" />,
       image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&q=80&w=600",
-      anchor: "/training-courses"
+      anchor: "/courses"
     },
     {
-      title: "دورات سابقة",
-      desc: "اطلع على أرشيف الدورات التدريبية السابقة التي نظمتها الهيئة وتفاصيلها.",
-      icon: <History className="w-8 h-8 text-secondary" />,
-      image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=600",
-      anchor: "#schedule"
+      title: "دورات أونلاين (عن بعد)",
+      desc: "نقدم مجموعة من الدورات التدريبية التفاعلية عن بعد، لتطوير مهاراتك من أي مكان وفي أي وقت.",
+      icon: <Laptop className="w-8 h-8 text-secondary" />,
+      image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=600",
+      anchor: "/courses"
     }
   ];
 
@@ -65,13 +65,6 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
         <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-gray-50 to-transparent"></div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-block mb-6 px-5 py-1.5 rounded-full bg-white/10 text-secondary border border-secondary/30 backdrop-blur-md text-sm font-bold tracking-wider"
-          >
-            عن الهيئة
-          </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -147,7 +140,7 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
           </motion.div>
         )}
 
-          <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -175,46 +168,13 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
                 ))}
               </ul>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-end">
-                <a 
-                  href="/منهج تأهيل واعداد المحكم الهندسي 01-preview.pdf#toolbar=0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-secondary text-white rounded-lg font-bold hover:bg-secondary/90 transition-colors shadow-lg"
-                >
-                  <span>عرض منهج التأهيل والإعداد</span>
-                  <BookOpen className="w-5 h-5" />
-                </a>
-                <a 
-                  href="/دليل دورة التحكيم الهندسي 01.pdf#toolbar=0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-bold hover:bg-primary/90 transition-colors shadow-lg"
-                >
-                  <span>عرض دليل دورة التحكيم</span>
-                  <BookOpen className="w-5 h-5" />
-                </a>
-              </div>
+
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Schedule Section */}
-      <section id="schedule" className="py-24 bg-gray-50 border-t border-gray-200">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary">دورات سابقة</h2>
-            <div className="w-16 h-1 bg-secondary mx-auto mt-4 rounded-full"></div>
-            <p className="text-gray-500 mt-4 text-lg">سيتم إضافة أرشيف الدورات السابقة قريباً...</p>
-          </motion.div>
-        </div>
-      </section>
+
 
       {/* Training Course PDF Viewer */}
       <section className="py-16 bg-white border-t border-gray-200">

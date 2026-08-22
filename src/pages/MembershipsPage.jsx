@@ -341,9 +341,7 @@ const MembershipsPage = () => {
                   كيفية التقدم للعضوية <br/> <span className="text-secondary">بالهيئة</span>
                 </h2>
                 <div className="w-16 h-1 bg-secondary ml-auto mb-8 rounded-full"></div>
-                <p className="text-gray-500 leading-relaxed text-lg">
-                  المستهدفون بهذا البرنامج هم جميع أطراف العقد مثل المالك ، المهندس ، المقاول ، العاملين في إدارة العقود ، والمسؤولون عن حل المنازعات في العقود.
-                </p>
+
               </motion.div>
 
             </div>

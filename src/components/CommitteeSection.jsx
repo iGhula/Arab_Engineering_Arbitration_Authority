@@ -4,23 +4,22 @@ import { Quote, User, Mail, Phone } from 'lucide-react';
 
 const CommitteeSection = ({ hideTitle = true }) => {
   const members = [
-    { name: "م. أمحمد غولة - ليبيا", role: "رئيس اللجنة التنفيذية", email: "eghula@gmail.com", phone: "00962790212312", image: "/members/m_ghoula.png" },
-    { name: "م. جودت يغمور - الأردن", role: "رئيس اللجنة التنفيذية", email: "j.yaghmour@ace-jor.com", phone: "00962795207408", image: null },
-    { name: "م. داود خلف - الأردن", role: "رئيس اللجنة التنفيذية", email: "daudskhalaf@yahoo.com", phone: "00962796445811", image: null },
+    { name: "م. جودت يغمور - الأردن", role: "نائب اللجنة التنفيذية", email: "j.yaghmour@ace-jor.com", phone: "00962795207408", image: "/جودت يغمور.jpeg" },
+    { name: "م. فؤاد الكندي - عُمان", role: "نائب اللجنة التنفيذية", email: null, phone: null, image: "/فؤاد الكندي.jpeg" },
+    { name: "م. داود خلف - الأردن", role: "رئيس اللجنة التنفيذية", email: "daudskhalaf@yahoo.com", phone: "00962796445811", image: "/داوود خلف.jpeg" },
     { name: "م. محمد سعيد فتحة - لبنان", role: "نائب الرئيس", email: "fathasaid@gmail.com", phone: "0096137336716", image: null },
     { name: "م. عبد الكريم سعدون - السعودية", role: "عضو اللجنة التنفيذية", email: "al_sadoun@saudieng.org", phone: "00966505291125", image: null },
     { name: "د. إبراهيم الضبيب - السعودية", role: "عضو اللجنة التنفيذية", email: null, phone: "0096650514198", image: null },
-    { name: "م. فيصل الشريف - السعودية", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: null },
+    { name: "م. فيصل الشريف - السعودية", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: "/فيصل الشريف.jpeg" },
     { name: "م. ناصر المطيري - الكويت", role: "عضو اللجنة التنفيذية", email: "nasserhalmutairi@gmail.com", phone: "0096599812097", image: "/members/n_mutairi.jpg" },
-    { name: "م. شادي بن خليفة - تونس", role: "عضو اللجنة التنفيذية", email: "bk.chady@gmail.com", phone: "0021699058192", image: null },
-    { name: "م. طارق العشماوي - فلسطين", role: "عضو اللجنة التنفيذية", email: "atmawi@hotmail.com", phone: "0599840684", image: null },
-    { name: "م. عمر سلام - العراق", role: "عضو اللجنة التنفيذية", email: "omar80_ce@yahoo.com", phone: "009647716085053", image: null },
+    { name: "م. شادي بن خليفة - تونس", role: "عضو اللجنة التنفيذية", email: "bk.chady@gmail.com", phone: "0021699058192", image: "/شادي بن خليفة.jpeg" },
+    { name: "م. طارق العتماوي - فلسطين", role: "عضو اللجنة التنفيذية", email: "atmawi@hotmail.com", phone: "0599840684", image: "/طارق العتماوي.jpg" },
+    { name: "م. عمر سلام - العراق", role: "عضو اللجنة التنفيذية", email: "omar80_ce@yahoo.com", phone: "009647716085053", image: "/عمر سلام.jpeg" },
     { name: "م. محمد أبو زكي - عُمان", role: "عضو اللجنة التنفيذية", email: "mabuzaki@gmail.com", phone: "0096899448820", image: null },
-    { name: "م. فؤاد الكندي - عُمان", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: null },
     { name: "د. شريف الهجان - مصر", role: "عضو اللجنة التنفيذية", email: "sherif@haggan-cab.org", phone: "01005236783", image: null },
     { name: "م. محمد عبد الغني - مصر", role: "عضو اللجنة التنفيذية", email: "m.69.abdelghany@gmail.com", phone: "201001349405", image: null },
-    { name: "م. معتز طلبه - مصر", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: null },
-    { name: "م. توفيق سنان - لبنان", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: null },
+    { name: "م. معتز طلبه - مصر", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: "/معتز طلبه.jpg" },
+    { name: "م. توفيق سنان - لبنان", role: "عضو اللجنة التنفيذية", email: null, phone: null, image: "/توفيق سنان.jpg" },
   ];
 
   return (
@@ -30,7 +29,7 @@ const CommitteeSection = ({ hideTitle = true }) => {
 
       <div className="container mx-auto px-4 relative z-10 max-w-6xl">
         {!hideTitle && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -44,7 +43,7 @@ const CommitteeSection = ({ hideTitle = true }) => {
         )}
 
         {/* Chairman Hero Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -55,29 +54,41 @@ const CommitteeSection = ({ hideTitle = true }) => {
             <div className="aspect-[4/5] bg-gray-200 rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative group">
               {/* Placeholder for the chairman's image */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              <img src="/members/m_ghoula.png" alt="م. أمحمد غولة" className="w-full h-full object-cover" />
+              <img src="/members/m_ghoula.png" alt="م.إمحمد غولة" className="w-full h-full object-cover" />
             </div>
           </div>
 
           {/* Chairman Quote & Info */}
           <div className="w-full md:w-2/3 bg-primary rounded-3xl p-10 md:p-16 text-white shadow-2xl relative md:-mr-12 z-10">
             <Quote className="absolute top-10 right-10 w-16 h-16 text-white/10 rotate-180" />
-            
+
             <div className="relative z-10 text-right">
-              <h3 className="text-3xl font-bold mb-2">م. أمحمد غولة</h3>
-              <p className="text-secondary font-semibold mb-8">رئيس مجلس الإدارة</p>
-              
+              <h3 className="text-3xl font-bold mb-2">م.إمحمد عبد الرحمن غولة</h3>
+              <p className="text-secondary font-semibold mb-8">رئيس اللجنة التنفيذية </p>
+
               <div className="space-y-4 text-gray-300 leading-relaxed text-sm md:text-base font-light">
-                <p>
-                  " السادة الأعضاء والزوار الكرام يسعدني أن أرحب بكم في الموقع الإلكتروني للهيئة العربية للتحكيم الهندسي والتي أتشرف بأنني رئيسا لها وخادما لمصالح المهندسين العرب في مجال التحكيم الهندسي.
+                <p className="font-bold mb-2">
+                  أهلاً بكم في المنصة الرقمية للهيئة العربية للتحكيم الهندسي
                 </p>
                 <p>
-                  اننا نطمح أن تكون هذه الهيئة والمراكز التحكيمية المنبثقة منها مؤسسة عربية قادرة على حل المشكلات في القطاع الهندسي وتطويره وتقليل العوائق امام الشركات الخاصة والعامة على حد سواء. ونحرص من خلال هذا الموقع الالكتروني على خلق فضاء هندسي قانوني متكامل وتوفير أحسن الخدمات والمعلومات للمهندسين العرب والمؤسسات والهيئات الهندسية بما يمكن من الاستخدام الأمثل للوسائل البديلة لحل النزاع في العقود والمشروعات الهندسية. "
+                  الزوار والأعضاء الكرام،
+                  <br />
+                  باسم اللجنة التنفيذية للهيئة العربية للتحكيم الهندسي، يسعدني أن أرحب بكم في موقعنا الإلكتروني، الذي أردناه أن يكون نافذة متكاملة تجمع بين الخبرة الهندسية والرصانة القانونية لخدمة قطاع التشييد والبناء في وطننا العربي.
+                </p>
+                <p>
+                  تأسست الهيئة لتكون مرجعية عربية متخصصة في تسوية النزاعات الهندسية والإنشائية، ونحن في اللجنة التنفيذية نضع نصب أعيننا ترسيخ أطر العدالة الناجزة، ونشر ثقافة التحكيم المائي والوساطة، وتطوير قواعد تحكيم حديثة تواكب أفضل الممارسات الدولية وعقود الإنشاءات (مثل عقود الفيديك).
+                </p>
+                <p>
+                  عبر هذا الموقع، نتيح لكم الاطلاع على قواعد التحكيم، وقوائم المحكمين والخبراء المعتمدين، والبرامج التدريبية التخصصية، إضافة إلى متابعة أحدث المبادرات التي تهدف إلى تعزيز البيئة الاستثمارية وتوفير الحماية القانونية للمشاريع الهندسية.
+                </p>
+                <p>
+                  نتمنى أن تجدوا في منصتنا هذه ما يلبي تطلعاتكم، ونرحب دائماً بتواصلكم ومقترحاتكم لنرتقي معاً بمنظومة التحكيم الهندسي العربي.
                 </p>
               </div>
 
-              <div className="mt-8 font-signature text-2xl text-white/80">
-                م. أمحمد غولة
+              <div className="mt-8 text-white/90">
+                <p className="font-bold text-lg">رئيس اللجنة التنفيذية</p>
+                <p className="text-sm">الهيئة العربية للتحكيم الهندسي</p>
               </div>
             </div>
           </div>
@@ -102,13 +113,7 @@ const CommitteeSection = ({ hideTitle = true }) => {
                 ) : (
                   <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                 )}
-                
-                {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <span className="text-secondary font-bold border border-secondary px-4 py-2 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                    عرض الملف
-                  </span>
-                </div>
+
               </div>
 
               {/* Member Info */}
@@ -117,23 +122,8 @@ const CommitteeSection = ({ hideTitle = true }) => {
                   {member.name}
                 </h4>
                 <p className="text-gray-400 text-sm mb-4 font-bold">{member.role}</p>
-                
-                {(member.email || member.phone) && (
-                  <div className="mt-auto space-y-2 pt-4 border-t border-gray-100">
-                    {member.phone && (
-                      <div className="flex items-center justify-center gap-2 text-gray-500 text-sm" dir="ltr">
-                        <Phone className="w-4 h-4 text-secondary" />
-                        <span>{member.phone}</span>
-                      </div>
-                    )}
-                    {member.email && (
-                      <div className="flex items-center justify-center gap-2 text-gray-500 text-sm">
-                        <Mail className="w-4 h-4 text-secondary" />
-                        <span className="truncate max-w-[200px]" title={member.email}>{member.email}</span>
-                      </div>
-                    )}
-                  </div>
-                )}
+
+
               </div>
             </motion.div>
           ))}

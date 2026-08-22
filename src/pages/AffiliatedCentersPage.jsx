@@ -36,10 +36,10 @@ const AffiliatedCentersPage = () => {
     <div className="font-sans text-gray-800 bg-light min-h-screen flex flex-col relative">
       <div className="absolute top-0 left-0 right-0 h-24 bg-dark z-40 shadow-md"></div>
       <Header />
-      
+
       <main className="flex-grow pt-24 bg-gray-50 relative z-10">
         <PageHero tag="مراكز منتسبة" title="مراكز منتسبة للهيئة" />
-        
+
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4 max-w-6xl">
             {/* Tabs Navigation */}
@@ -48,11 +48,10 @@ const AffiliatedCentersPage = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 relative ${
-                    activeTab === tab.id
+                  className={`flex items-center px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 relative ${activeTab === tab.id
                       ? 'bg-primary text-white shadow-lg transform -translate-y-1'
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-primary'
-                  }`}
+                    }`}
                 >
                   {tab.icon}
                   {tab.label}
@@ -81,19 +80,19 @@ const AffiliatedCentersPage = () => {
                     className="h-[80vh] flex flex-col"
                   >
                     <div className="text-center mb-6 shrink-0">
-                      <h3 className="text-2xl font-bold text-dark mb-2">تصور انتساب مراكز ومؤسسات التحكيم والوساطة</h3>
+                      <h3 className="text-2xl font-bold text-dark mb-2">إجراءات انتساب مراكز ومؤسسات التحكيم والوساطة</h3>
                       <div className="h-1 w-16 bg-secondary mx-auto rounded"></div>
                     </div>
                     <div className="rounded-2xl overflow-hidden border border-gray-200 grow shadow-sm mb-6">
-                      <iframe 
-                        src="/تصور_انتساب_مراكز_ومؤسسات_التحكيم_والوساطة.pdf#toolbar=0" 
+                      <iframe
+                        src="/تصور_انتساب_مراكز_ومؤسسات_التحكيم_والوساطة.pdf#toolbar=0"
                         className="w-full h-full border-none pointer-events-auto"
                         title="تصور انتساب مراكز ومؤسسات التحكيم والوساطة"
                       ></iframe>
                     </div>
                     <div className="flex justify-center shrink-0">
-                      <a 
-                        href="/نموذج_طلب_انتساب_الجهات_للهيئة.docx" 
+                      <a
+                        href="/نموذج_طلب_انتساب_الجهات_للهيئة.docx"
                         download="نموذج_طلب_انتساب_الجهات_للهيئة.docx"
                         className="inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                       >
@@ -117,10 +116,10 @@ const AffiliatedCentersPage = () => {
                       <h3 className="text-2xl font-bold text-dark mb-2">مراكز الهيئة والتعاون المشترك</h3>
                       <div className="h-1 w-16 bg-primary mx-auto rounded"></div>
                     </div>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       {centersData.map((center, index) => (
-                        <motion.div 
+                        <motion.div
                           key={center.id}
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -133,7 +132,7 @@ const AffiliatedCentersPage = () => {
                             </div>
                             <h4 className="text-xl font-bold text-dark leading-tight">{center.name}</h4>
                           </div>
-                          
+
                           <div className="flex-grow space-y-4">
                             <div className="flex items-start gap-3 text-gray-700">
                               <Handshake className="w-5 h-5 text-secondary shrink-0 mt-0.5" />

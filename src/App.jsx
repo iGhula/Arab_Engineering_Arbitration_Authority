@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Home from './pages/Home';
 import VisionMissionPage from './pages/VisionMissionPage';
-import FunctionsPage from './pages/FunctionsPage';
+
 import CommitteePage from './pages/CommitteePage';
-import PresidentsPage from './pages/PresidentsPage';
+
 import ArbitrationServicesPage from './pages/ArbitrationServicesPage';
 import BooksPage from './pages/BooksPage';
 import ArticlesPage from './pages/ArticlesPage';
@@ -18,6 +18,7 @@ import AgreementsPage from './pages/AgreementsPage';
 import AffiliatedCentersPage from './pages/AffiliatedCentersPage';
 import MagazinePage from './pages/MagazinePage';
 import PublicationsPage from './pages/PublicationsPage';
+import CoursesPage from './pages/CoursesPage';
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -35,15 +36,11 @@ function App() {
     case '/vision-mission':
       Component = VisionMissionPage;
       break;
-    case '/functions':
-      Component = FunctionsPage;
-      break;
+
     case '/committee':
       Component = CommitteePage;
       break;
-    case '/presidents':
-      Component = PresidentsPage;
-      break;
+
     case '/arbitration-services':
       Component = ArbitrationServicesPage;
       break;
@@ -70,6 +67,9 @@ function App() {
       break;
     case '/publications':
       Component = PublicationsPage;
+      break;
+    case '/courses':
+      Component = CoursesPage;
       break;
     case '/contact-us':
       Component = ContactUsPage;

@@ -4,10 +4,8 @@ import { ArrowLeft, Scale, Building2 } from 'lucide-react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HistorySection from '../components/HistorySection';
-import ArbitrationSection from '../components/ArbitrationSection';
-import VisionMissionSection from '../components/VisionMissionSection';
-import GoalsSection from '../components/GoalsSection';
-import CoursesPublicationsSection from '../components/CoursesPublicationsSection';
+import SecretaryMessageSection from '../components/SecretaryMessageSection';
+
 
 const HeroSection = () => {
   return (
@@ -37,10 +35,7 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8">
-                <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-                <span className="text-secondary text-sm font-semibold tracking-wider">الريادة في تسوية النزاعات الهندسية</span>
-              </div>
+
               
               <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
                 الهيئة العربية<br />
@@ -49,9 +44,6 @@ const HeroSection = () => {
                 </span>
               </h1>
               
-              <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl font-light">
-                إحدى الهيئات التخصصية الرائدة في اتحاد المهندسين العرب، نضع معايير التميز والاحترافية في فض النزاعات الهندسية والإنشائية منذ عام 2010.
-              </p>
               
               <div className="flex flex-col sm:flex-row gap-5">
                 <button className="group relative px-8 py-4 bg-secondary text-white font-bold rounded-lg overflow-hidden shadow-[0_0_40px_rgba(200,149,63,0.3)] hover:shadow-[0_0_60px_rgba(200,149,63,0.5)] transition-all">
@@ -106,6 +98,9 @@ const HeroSection = () => {
                     />
                   </div>
                   <h3 className="text-white text-xl font-bold">النزاهة والشفافية</h3>
+                  <p className="text-sm text-gray-300 leading-relaxed mb-2">
+                    إحدى الهيئات التخصصية الرائدة في اتحاد المهندسين العرب، نضع معايير التميز والاحترافية في فض النزاعات الهندسية والإنشائية منذ عام 2010.
+                  </p>
                   <p className="text-sm text-gray-400 leading-relaxed">
                     نعتمد أفضل الممارسات العالمية لضمان تسوية عادلة وفعالة للنزاعات الهندسية.
                   </p>
@@ -129,10 +124,9 @@ const Home = () => {
       
       <main className="flex-grow">
         <HeroSection />
+        <SecretaryMessageSection />
         <HistorySection />
-        <ArbitrationSection />
-        <GoalsSection preview={true} />
-        <CoursesPublicationsSection />
+
       </main>
 
       <Footer />

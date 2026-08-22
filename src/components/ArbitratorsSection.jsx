@@ -1,28 +1,66 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import rawArbitrators from '../data/arbitrators.json';
+import rawArbitrators from '../data/parsed_arbitrators.json';
 
-// Parse the JSON data from the Excel sheet (removing header row)
-const arbitratorsList = rawArbitrators.slice(1).map((row, index) => ({
-  id: row[0] || `auto-${index}`,
-  name: row[1],
-  country: row[2],
-  specialty: row[3]
-})).filter(a => a.name); // Filter out empty rows
+// The new parsed JSON is already in the correct format, so we can just use it directly
+// filter out any empty ones just in case
+const arbitratorsList = rawArbitrators.filter(a => a.name);
 
-const uniqueCountries = [...new Set(arbitratorsList.map(a => a.country).filter(Boolean))];
-const countries = ["الكل", "الرئاسية", ...uniqueCountries];
+const executiveMembers = [
+  { id: 'exec-17', name: "م.إمحمد غولة", category: "الرئاسية" },
+  { id: 'exec-1', name: "م. جودت يغمور - الأردن", category: "الرئاسية" },
+  { id: 'exec-2', name: "م. فؤاد الكندي - عُمان", category: "الرئاسية" },
+  { id: 'exec-3', name: "م. فيصل الشريف - السعودية", category: "الرئاسية" },
+  { id: 'exec-4', name: "م. ناصر المطيري - الكويت", category: "الرئاسية" },
+  { id: 'exec-5', name: "م. شادي بن خليفة - تونس", category: "الرئاسية" },
+  { id: 'exec-6', name: "م. طارق العتماوي - فلسطين", category: "الرئاسية" },
+  { id: 'exec-7', name: "م. عمر سلام - العراق", category: "الرئاسية" },
+  { id: 'exec-8', name: "م. معتز طلبه - مصر", category: "الرئاسية" },
+  { id: 'exec-9', name: "م. توفيق سنان - لبنان", category: "الرئاسية" },
+  { id: 'exec-10', name: "م. داود خلف - الأردن", category: "الرئاسية" },
+  { id: 'exec-11', name: "م. محمد سعيد فتحة - لبنان", category: "الرئاسية" },
+  { id: 'exec-12', name: "م. عبد الكريم سعدون - السعودية", category: "الرئاسية" },
+  { id: 'exec-13', name: "د. إبراهيم الضبيب - السعودية", category: "الرئاسية" },
+  { id: 'exec-14', name: "م. محمد أبو زكي - عُمان", category: "الرئاسية" },
+  { id: 'exec-15', name: "د. شريف الهجان - مصر", category: "الرئاسية" },
+  { id: 'exec-16', name: "م. محمد عبد الغني - مصر", category: "الرئاسية" },
+  { id: 'exec-20', name: "م. محمد ماجد خلوصي - مصر", category: "الرئاسية" },
+  { id: 'exec-18', name: "م. منذر الساكت - الأردن", category: "الرئاسية" },
+  { id: 'exec-19', name: "م. نبيل عباس - السعودية", category: "الرئاسية" },
+];
+
+const cleanNameForSort = (name) => {
+  if (!name) return '';
+  // Remove common titles to sort by actual name
+  return name.replace(/^(م\.|د\.|أ\.|م\s|د\s|أ\s)\s*/, '').trim();
+};
+
+const allArbitratorsList = [...executiveMembers, ...arbitratorsList].sort((a, b) =>
+  cleanNameForSort(a.name).localeCompare(cleanNameForSort(b.name), 'ar')
+);
+
+const allCategories = ["الرئاسية", "فئة أ", "فئة ب"];
 
 const ArbitratorsSection = () => {
-  const [activeTab, setActiveTab] = useState('الكل');
+  const [activeCategory, setActiveCategory] = useState("الرئاسية");
+  const [activeCountry, setActiveCountry] = useState("الكل");
 
-  const filteredArbitrators = activeTab === 'الكل' 
-    ? arbitratorsList 
-    : arbitratorsList.filter(a => a.country === activeTab);
+  useEffect(() => {
+    setActiveCountry("الكل");
+  }, [activeCategory]);
+
+  const filteredByCategory = allArbitratorsList.filter(a => a.category === activeCategory);
+
+  const uniqueCountries = [...new Set(filteredByCategory.map(a => a.country).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'ar'));
+  const countries = ["الكل", ...uniqueCountries];
+
+  const filteredArbitrators = activeCountry === 'الكل'
+    ? filteredByCategory
+    : filteredByCategory.filter(a => a.country === activeCountry);
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      
+
       {/* Hero Section */}
       <section className="relative py-32 overflow-hidden flex items-center justify-center min-h-[45vh]">
         {/* Background Image with Overlay */}
@@ -30,20 +68,14 @@ const ArbitratorsSection = () => {
           <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=1920" alt="Arbitrators Background" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-dark/95 via-primary/80 to-dark/90"></div>
         </div>
-        
+
         {/* Decorative Elements */}
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-[100px]"></div>
         <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-gray-50 to-transparent"></div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-block mb-6 px-5 py-1.5 rounded-full bg-white/10 text-secondary border border-secondary/30 backdrop-blur-md text-sm font-bold tracking-wider"
-          >
-            المحكمين
-          </motion.div>
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -51,7 +83,7 @@ const ArbitratorsSection = () => {
           >
             القوائم الموحدة للمحكمين
           </motion.h1>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
@@ -63,23 +95,48 @@ const ArbitratorsSection = () => {
       {/* Content Section */}
       <section className="py-20 -mt-24 relative z-20">
         <div className="container mx-auto px-4 max-w-7xl">
-          
-          {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-3 mb-16 max-w-5xl mx-auto">
-            {countries.map((country, index) => (
+
+          {/* Primary Filters (Categories) */}
+          <div className="flex flex-wrap justify-center gap-3 mb-6 max-w-5xl mx-auto">
+            {allCategories.map((category, index) => (
               <button
                 key={index}
-                onClick={() => setActiveTab(country)}
-                className={`px-6 py-2 rounded-md font-bold transition-all duration-300 ${
-                  activeTab === country 
-                    ? 'bg-primary text-white shadow-lg scale-105' 
-                    : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 text-sm'
-                }`}
+                onClick={() => setActiveCategory(category)}
+                className={`px-8 py-3 rounded-md font-bold transition-all duration-300 text-lg ${activeCategory === category
+                  ? 'bg-secondary text-white shadow-lg scale-105'
+                  : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                  }`}
               >
-                {country}
+                {category}
               </button>
             ))}
           </div>
+
+          {/* Secondary Filters (Countries) */}
+          <AnimatePresence>
+            {activeCategory !== 'الرئاسية' && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                className="flex flex-wrap justify-center gap-3 mb-16 max-w-5xl mx-auto"
+              >
+                {countries.map((country, index) => (
+                  <button
+                    key={`country-${index}`}
+                    onClick={() => setActiveCountry(country)}
+                    className={`px-6 py-2 rounded-md font-bold transition-all duration-300 ${activeCountry === country
+                      ? 'bg-primary text-white shadow-lg scale-105'
+                      : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200 text-sm'
+                      }`}
+                  >
+                    {country}
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+          {activeCategory === 'الرئاسية' && <div className="mb-16"></div>}
 
           {/* Arbitrators Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -98,12 +155,14 @@ const ArbitratorsSection = () => {
                     {arbitrator.name}
                   </h3>
                   <div className="flex flex-col gap-2 mt-auto">
-                    <div className="flex items-center justify-end gap-2 text-gray-600 font-medium">
-                      <span>{arbitrator.country}</span>
-                      <span className="w-2 h-2 rounded-full bg-secondary"></span>
-                    </div>
+                    {arbitrator.country && (
+                      <div className="flex items-center justify-start gap-2 text-gray-600 font-medium">
+                        <span>{arbitrator.country}</span>
+                        <span className="w-2 h-2 rounded-full bg-secondary"></span>
+                      </div>
+                    )}
                     {arbitrator.specialty && (
-                      <div className="flex items-center justify-end gap-2 text-gray-500 text-sm">
+                      <div className="flex items-center justify-start gap-2 text-gray-500 text-sm">
                         <span>{arbitrator.specialty}</span>
                       </div>
                     )}
@@ -117,7 +176,7 @@ const ArbitratorsSection = () => {
               </div>
             )}
           </div>
-          
+
         </div>
       </section>
     </div>

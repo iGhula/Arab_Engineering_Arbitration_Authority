@@ -17,7 +17,7 @@ const ExpertsSection = () => {
     {
       id: 2,
       name: "محمد عبدالنبي على الشنتيري",
-      specialty: "مدني - كويتي",
+      specialty: "مدني - ليبي",
       role: "خبير عقود",
       desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
     },
@@ -29,11 +29,58 @@ const ExpertsSection = () => {
       desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
     },
     {
-      id: 4,
-      name: "عمرو فتحي أحمد رضوان",
-      specialty: "مدني - مصري",
+      id: "new-0",
+      name: "هيثم علي عياد",
+      specialty: "هندسة معمارية - ليبيا",
       role: "عضو مجلس نزاع",
-      desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
+    },
+    {
+      id: "new-1",
+      name: "مصطفى محمد الهمالي",
+      specialty: "هندسة مدنية - ليبيا",
+      role: "عضو مجلس نزاع",
+    },
+    {
+      id: "new-2",
+      name: "محمد احمد ابوعجيلة",
+      specialty: "هندسة مدنية - ليبيا",
+      role: "عضو مجلس نزاع",
+    },
+    {
+      id: "new-3",
+      name: "المهدي احمد المهدي كرواد",
+      specialty: "هندسة مدنية - ليبيا",
+      role: "عضو مجلس نزاع",
+    },
+    {
+      id: "new-4",
+      name: "الناجح عمر صالح عمر",
+      specialty: "هندسة طرق - ليبيا",
+      role: "عضو مجلس نزاع",
+    },
+    {
+      id: "new-5",
+      name: "علي احمد الطاس",
+      specialty: "هندسة مدنية - ليبيا",
+      role: "عضو مجلس نزاع",
+    },
+    {
+      id: "new-6",
+      name: "عصام مفتاح الجانكو",
+      specialty: "ليبيا",
+      role: "عضو مجلس نزاع",
+    },
+    {
+      id: "new-7",
+      name: "سليمان عبدالله الشريمي",
+      specialty: "هندسة بحرية - ليبيا",
+      role: "عضو مجلس نزاع",
+    },
+    {
+      id: "new-8",
+      name: "عبدالله محمد المنفي",
+      specialty: "هندسة انشاءات - ليبيا",
+      role: "عضو مجلس نزاع",
     },
     {
       id: 5,
@@ -73,13 +120,7 @@ const ExpertsSection = () => {
         <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-gray-50 to-transparent"></div>
 
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-block mb-6 px-5 py-1.5 rounded-full bg-white/10 text-secondary border border-secondary/30 backdrop-blur-md text-sm font-bold tracking-wider"
-          >
-            الخبراء
-          </motion.div>
+
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

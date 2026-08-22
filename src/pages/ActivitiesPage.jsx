@@ -182,7 +182,7 @@ const ActivitiesPage = () => {
         <section className="py-16 bg-white relative z-10 border-t border-gray-100">
           <div className="container mx-auto px-4 max-w-5xl">
             <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-dark mb-4">التقرير العام</h2>
+              <h2 className="text-3xl font-bold text-dark mb-4">تقرير عام 2026</h2>
               <div className="h-1 w-20 bg-primary mx-auto rounded"></div>
             </div>
             <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden" style={{ height: '70vh' }}>

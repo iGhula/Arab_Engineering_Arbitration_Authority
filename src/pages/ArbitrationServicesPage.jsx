@@ -14,12 +14,12 @@ const ArbitrationServicesPage = () => {
     <div className="font-sans text-gray-800 bg-light min-h-screen flex flex-col relative">
       <div className="absolute top-0 left-0 right-0 h-24 bg-dark z-40 shadow-md"></div>
       <Header />
-      
+
       <main className="flex-grow pt-24 bg-gray-50 relative z-10">
-        <PageHero tag="الصلح والوساطة" title="خدمات التحكيم" />
+        <PageHero tag="الصلح والوساطة" title="الصلح والوساطة والتحكيم" />
         <div className="-mt-16 relative z-20">
-        <ArbitrationServicesSection />
-              </div>
+          <ArbitrationServicesSection />
+        </div>
       </main>
 
       <Footer />
