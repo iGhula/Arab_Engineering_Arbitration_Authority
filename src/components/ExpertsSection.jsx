@@ -2,32 +2,13 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Phone, UserCheck } from 'lucide-react';
 
+// Google Form URL for Experts registration:
+const GOOGLE_FORM_EXPERT_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfmnth_XsehuIHkx5HMEiILd1w-MORfYleVIBJMSxICNeYrrA/viewform?usp=publish-editor";
+
 const ExpertsSection = () => {
   const [activeTab, setActiveTab] = useState('الكل');
 
   const experts = [
-    {
-      id: 1,
-      name: "ناصر حسن المطيري",
-      specialty: "مدني - كويتي",
-      role: "خبير هندسي فني",
-      desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
-      image: "/members/n_mutairi.jpg"
-    },
-    {
-      id: 2,
-      name: "محمد عبدالنبي على الشنتيري",
-      specialty: "مدني - ليبي",
-      role: "خبير عقود",
-      desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
-    },
-    {
-      id: 3,
-      name: "محمد سمير صالح ملياني",
-      specialty: "عمارة - سعودي",
-      role: "وسيط",
-      desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
-    },
     {
       id: "new-0",
       name: "هيثم علي عياد",
@@ -81,20 +62,6 @@ const ExpertsSection = () => {
       name: "عبدالله محمد المنفي",
       specialty: "هندسة انشاءات - ليبيا",
       role: "عضو مجلس نزاع",
-    },
-    {
-      id: 5,
-      name: "خالد محمود الغرياني",
-      specialty: "مدني - ليبي",
-      role: "خبير هندسي فني",
-      desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
-    },
-    {
-      id: 6,
-      name: "على محمد على منصور",
-      specialty: "مدني - ليبي",
-      role: "وسيط",
-      desc: "باشر التحكيم في أكثر من 250 من المنازعات الهندسية كمحكم أو محكم مرجح.",
     }
   ];
 
@@ -142,6 +109,22 @@ const ExpertsSection = () => {
       <section className="py-20 -mt-24 relative z-20">
         <div className="container mx-auto px-4 max-w-7xl">
           
+          {/* Registration CTA Banner */}
+          <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8 mb-12 flex flex-col md:flex-row items-center justify-between gap-6 text-right" dir="rtl">
+            <div>
+              <h3 className="text-xl font-bold text-primary mb-1">تقديم طلب تسجيل في قوائم الخبراء</h3>
+              <p className="text-gray-500 text-sm">يمكنك ملء الاستمارة الإلكترونية لطلب الانضمام إلى قائمة الخبراء المعتمدين (الرسوم: 100 دولار سنوياً تدفع بعد موافقة اللجنة التنفيذية).</p>
+            </div>
+            <a 
+              href={GOOGLE_FORM_EXPERT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-secondary text-white font-bold rounded-xl hover:bg-primary transition-colors duration-300 shrink-0 text-sm shadow-md"
+            >
+              استمارة طلب تسجيل الخبراء
+            </a>
+          </div>
+
           {/* Filters */}
           <div className="flex flex-wrap justify-center gap-4 mb-16">
             {roles.map((role, index) => (

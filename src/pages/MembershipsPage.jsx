@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import PageHero from '../components/PageHero';
 import Footer from '../components/Footer';
-import { UploadCloud, CheckCircle2, AlertCircle, Loader2, GraduationCap, Award, FileSignature, Users, Landmark } from 'lucide-react';
+import { AlertCircle, GraduationCap, Award, FileSignature, Users, Landmark } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const MembershipsPage = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState('');
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -47,43 +43,6 @@ const MembershipsPage = () => {
     }
   ];
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError('');
-
-    const form = e.target;
-    const formData = new FormData(form);
-
-    try {
-      // NOTE: Replace 'YOUR_FORMSPREE_ID' with your actual Formspree endpoint ID
-      // Example: 'https://formspree.io/f/xbjvqzpo'
-      const response = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
-      if (response.ok) {
-        setIsSubmitted(true);
-        form.reset();
-      } else {
-        const data = await response.json();
-        if (Object.hasOwn(data, 'errors')) {
-          setError(data["errors"].map(error => error["message"]).join(", "));
-        } else {
-          setError("عذراً، حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.");
-        }
-      }
-    } catch (err) {
-      setError("حدث خطأ في الاتصال. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div className="font-sans text-gray-800 bg-gray-50 min-h-screen flex flex-col relative">
       <div className="absolute top-0 left-0 right-0 h-24 bg-dark z-40 shadow-md"></div>
@@ -93,206 +52,39 @@ const MembershipsPage = () => {
         <PageHero tag="عضويات" title="طلب عضوية الهيئة" />
         
         <section className="py-16">
-          <div className="container mx-auto px-4 max-w-3xl">
-            {isSubmitted ? (
-              <div className="bg-white rounded-2xl shadow-lg p-12 text-center border-t-8 border-green-500">
-                <div className="w-20 h-20 bg-green-100 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 className="w-10 h-10" />
-                </div>
-                <h3 className="text-3xl font-bold text-dark mb-4">تم إرسال طلبك بنجاح</h3>
-                <p className="text-gray-600 text-lg mb-8">
-                  شكراً لك لتقديم طلب العضوية في الهيئة العربية للتحكيم الهندسي. سيتم مراجعة طلبك والتواصل معك قريباً.
-                </p>
-                <button 
-                  onClick={() => setIsSubmitted(false)}
-                  className="bg-primary text-white font-bold py-3 px-8 rounded-xl hover:bg-primary/90 transition-colors"
-                >
-                  تقديم طلب آخر
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6" encType="multipart/form-data">
-                
-                {/* Error Message */}
-                {error && (
-                  <div className="bg-red-50 text-red-600 p-4 rounded-xl flex items-center gap-3 border border-red-200">
-                    <AlertCircle className="w-6 h-6 shrink-0" />
-                    <p className="font-medium">{error}</p>
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="bg-white rounded-3xl shadow-[0_10px_35px_rgba(0,0,0,0.05)] border-t-8 border-primary p-8 md:p-12 text-right">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-bold border border-secondary/20">
+                    <FileSignature className="w-4 h-4" />
+                    <span>طلب العضوية والهوية</span>
                   </div>
-                )}
-
-                {/* Form Header Card */}
-                <div className="bg-white rounded-2xl shadow-sm border-t-8 border-primary p-8 md:p-10">
-                  <h2 className="text-3xl font-bold text-dark mb-4">استمارة الحصول على هوية الهيئة</h2>
-                  <p className="text-gray-600 leading-relaxed mb-6">
-                    يرجى تعبئة النموذج أدناه بدقة. كافة البيانات الواردة هي على مسئولية مقدم الطلب، والاسم باللغتين العربية والإنجليزية سيظهر في الهوية طبقاً للمسجل في الاستمارة.
+                  <h2 className="text-3xl md:text-4xl font-extrabold text-primary">
+                    استمارة الحصول على هوية الهيئة
+                  </h2>
+                  <p className="text-gray-600 text-base leading-relaxed max-w-2xl">
+                    يرجى تعبئة النموذج الإلكتروني المعتمد بدقة. كافة البيانات الواردة هي على مسئولية مقدم الطلب، والاسم باللغتين العربية والإنجليزية سيظهر في الهوية طبقاً للمسجل في الاستمارة.
                   </p>
-                  <div className="bg-blue-50 text-blue-800 p-4 rounded-xl flex items-start gap-3">
-                    <AlertCircle className="w-6 h-6 shrink-0 mt-0.5" />
-                    <p className="text-sm font-medium">يرجى التأكد من إرفاق جميع المستندات المطلوبة في نهاية النموذج لتجنب تأخير معالجة الطلب.</p>
+                  <div className="bg-blue-50 text-blue-800 p-4 rounded-xl flex items-start gap-3 border border-blue-100 text-sm font-medium">
+                    <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                    <p>يرجى التأكد من إرفاق جميع المستندات المطلوبة في الاستمارة الإلكترونية لتجنب تأخير معالجة الطلب.</p>
                   </div>
                 </div>
 
-                {/* Membership Type */}
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
-                  <label className="block text-xl font-bold text-dark mb-4">
-                    نوع العضوية المطلوبة <span className="text-red-500">*</span>
-                  </label>
-                  <div className="flex gap-8">
-                    <label className="flex items-center gap-3 cursor-pointer group">
-                      <input type="radio" name="نوع_العضوية" value="محكم (أ)" required className="w-5 h-5 text-primary focus:ring-primary border-gray-300" />
-                      <span className="text-lg text-gray-700 group-hover:text-primary transition-colors">محكم (أ)</span>
-                    </label>
-                    <label className="flex items-center gap-3 cursor-pointer group">
-                      <input type="radio" name="نوع_العضوية" value="محكم (ب)" required className="w-5 h-5 text-primary focus:ring-primary border-gray-300" />
-                      <span className="text-lg text-gray-700 group-hover:text-primary transition-colors">محكم (ب)</span>
-                    </label>
-                  </div>
-                </div>
-
-                {/* Personal Info */}
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 space-y-6">
-                  <div>
-                    <label className="block text-lg font-bold text-dark mb-2">
-                      الاسم الثلاثي (Full Name) <span className="text-red-500">*</span>
-                    </label>
-                    <input type="text" name="الاسم_الثلاثي" required className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="أدخل اسمك الكامل كما في الهوية" />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-lg font-bold text-dark mb-2">
-                        الجنسية (Nationality) <span className="text-red-500">*</span>
-                      </label>
-                      <input type="text" name="الجنسية" required className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
-                    </div>
-                    <div>
-                      <label className="block text-lg font-bold text-dark mb-2">
-                        المؤهل الدراسي (Major) <span className="text-red-500">*</span>
-                      </label>
-                      <input type="text" name="المؤهل_الدراسي" required className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-lg font-bold text-dark mb-2">
-                        التخصص
-                      </label>
-                      <input type="text" name="التخصص" className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
-                    </div>
-                    <div>
-                      <label className="block text-lg font-bold text-dark mb-2">
-                        المهنة الحالية
-                      </label>
-                      <input type="text" name="المهنة_الحالية" className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-lg font-bold text-dark mb-2">
-                      العنوان <span className="text-red-500">*</span>
-                    </label>
-                    <input type="text" name="العنوان" required className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="العنوان البريدي الكامل" />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-lg font-bold text-dark mb-2">
-                        رقم التليفون (مع مفتاح الدولة) <span className="text-red-500">*</span>
-                      </label>
-                      <input type="tel" name="رقم_الهاتف" required dir="ltr" className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-right" placeholder="+000 000000000" />
-                    </div>
-                    <div>
-                      <label className="block text-lg font-bold text-dark mb-2">
-                        البريد الالكتروني <span className="text-red-500">*</span>
-                      </label>
-                      <input type="email" name="البريد_الالكتروني" required dir="ltr" className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-right" placeholder="example@domain.com" />
-                    </div>
-                  </div>
-                </div>
-
-                {/* File Uploads */}
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 space-y-6">
-                  <h3 className="text-xl font-bold text-dark mb-6 border-b border-gray-100 pb-4">المرفقات المطلوبة</h3>
-                  
-                  <div>
-                    <label className="block text-lg font-bold text-dark mb-2">
-                      نسخة من تحقيق الشخصية <span className="text-red-500">*</span>
-                    </label>
-                    <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-xl hover:border-primary transition-colors bg-gray-50 relative group">
-                      <div className="space-y-1 text-center">
-                        <UploadCloud className="mx-auto h-12 w-12 text-gray-400 group-hover:text-primary transition-colors" />
-                        <div className="flex text-sm text-gray-600 justify-center">
-                          <label className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80 focus-within:outline-none">
-                            <span>اضغط لرفع الملف</span>
-                            <input type="file" name="تحقيق_الشخصية" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required />
-                          </label>
-                        </div>
-                        <p className="text-xs text-gray-500">PDF, PNG, JPG حتى 5MB</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-lg font-bold text-dark mb-2">
-                      نسخة من هوية الهيئة المنتسب اليها <span className="text-red-500">*</span>
-                    </label>
-                    <p className="text-gray-500 text-sm mb-3">اتحاد، جمعية، نقابة، أو غيرها...</p>
-                    <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-xl hover:border-primary transition-colors bg-gray-50 relative group">
-                      <div className="space-y-1 text-center">
-                        <UploadCloud className="mx-auto h-12 w-12 text-gray-400 group-hover:text-primary transition-colors" />
-                        <div className="flex text-sm text-gray-600 justify-center">
-                          <label className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80 focus-within:outline-none">
-                            <span>اضغط لرفع الملف</span>
-                            <input type="file" name="هوية_الهيئة" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required />
-                          </label>
-                        </div>
-                        <p className="text-xs text-gray-500">PDF, PNG, JPG حتى 5MB</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-lg font-bold text-dark mb-2">
-                      صورة شخصية <span className="text-red-500">*</span>
-                    </label>
-                    <p className="text-gray-500 text-sm mb-3">مقاس 4×6 سم</p>
-                    <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-xl hover:border-primary transition-colors bg-gray-50 relative group">
-                      <div className="space-y-1 text-center">
-                        <UploadCloud className="mx-auto h-12 w-12 text-gray-400 group-hover:text-primary transition-colors" />
-                        <div className="flex text-sm text-gray-600 justify-center">
-                          <label className="relative cursor-pointer rounded-md font-medium text-primary hover:text-primary/80 focus-within:outline-none">
-                            <span>اضغط لرفع الملف</span>
-                            <input type="file" name="الصورة_الشخصية" className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required accept="image/*" />
-                          </label>
-                        </div>
-                        <p className="text-xs text-gray-500">PNG, JPG حتى 5MB</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="flex justify-end pt-4">
-                  <button 
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={`bg-primary text-white font-bold py-4 px-12 rounded-xl text-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center justify-center gap-2 ${
-                      isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
-                    }`}
+                <div className="shrink-0 w-full md:w-auto">
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSfMpK3KG3X7HBGz-31HO3tpqEi9qEYWn1zxLp9ynhjxiJOLZg/viewform?usp=dialog"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-3 w-full md:w-auto px-8 py-5 bg-primary hover:bg-secondary text-white font-bold text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                   >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="w-5 h-5 animate-spin" />
-                        جاري الإرسال...
-                      </>
-                    ) : (
-                      'إرسال الطلب'
-                    )}
-                  </button>
+                    <span>تعبئة الاستمارة الإلكترونية</span>
+                    <FileSignature className="w-5 h-5" />
+                  </a>
                 </div>
-              </form>
-            )}
+              </div>
+            </div>
           </div>
         </section>
 

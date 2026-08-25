@@ -176,23 +176,6 @@ const QualifyingProgramsSection = ({ hideTitle = true }) => {
 
 
 
-      {/* Training Course PDF Viewer */}
-      <section className="py-16 bg-white border-t border-gray-200">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-dark mb-4">الحقيبة التدريبية</h2>
-            <div className="h-1 w-20 bg-secondary mx-auto rounded"></div>
-          </div>
-          <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden" style={{ height: '80vh' }}>
-            <iframe 
-              src="/الحقيبة التدريبية للدورة اونلاين.pdf#toolbar=0" 
-              className="w-full h-full border-none pointer-events-auto"
-              title="الحقيبة التدريبية للدورة اونلاين"
-            ></iframe>
-          </div>
-        </div>
-      </section>
-
     </div>
   );
 };
