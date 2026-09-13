@@ -7,14 +7,14 @@ const ArticlesSection = ({ hideTitle = true }) => {
     {
       title: "أثر الوسائل البديلة في نجاح المشروعات",
       type: "PDF",
-      url: "/اثر-الوسائل-البديلة-في-انجاح-المشروعات.pdf",
+      url: "/alternative_methods_article.pdf",
       desc: "دورة بعنوان أثر الوسائل البديلة في نجاح المشروعات برعاية الأمانة العامة لإتحاد المهندسين العرب وبالتعاون مع نقابة المهندسين المصريين.",
       image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=600"
     },
     {
       title: "العقود الهندسية",
       type: "PDF",
-      url: "/مقال - العقود الهندسية.pdf",
+      url: "/engineering_contracts_article.pdf",
       desc: "مقال تفصيلي حول العقود الهندسية وأهميتها في تنظيم العلاقة بين الأطراف المشاركة في المشروعات.",
       image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=600"
     }

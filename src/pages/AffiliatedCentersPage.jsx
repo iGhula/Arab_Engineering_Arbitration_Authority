@@ -85,15 +85,15 @@ const AffiliatedCentersPage = () => {
                     </div>
                     <div className="rounded-2xl overflow-hidden border border-gray-200 grow shadow-sm mb-6">
                       <iframe
-                        src="/تصور_انتساب_مراكز_ومؤسسات_التحكيم_والوساطة.pdf#toolbar=0"
+                        src="/centers_affiliation_concept.pdf#toolbar=0"
                         className="w-full h-full border-none pointer-events-auto"
                         title="تصور انتساب مراكز ومؤسسات التحكيم والوساطة"
                       ></iframe>
                     </div>
                     <div className="flex justify-center shrink-0">
                       <a
-                        href="/نموذج_طلب_انتساب_الجهات_للهيئة.docx"
-                        download="نموذج_طلب_انتساب_الجهات_للهيئة.docx"
+                        href="/affiliation_request_form.docx"
+                        download="affiliation_request_form.docx"
                         className="inline-flex items-center justify-center gap-3 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                       >
                         <FileText className="w-6 h-6" />

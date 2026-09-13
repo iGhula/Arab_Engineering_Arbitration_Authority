@@ -40,7 +40,7 @@ const SecretaryMessageSection = () => {
             {/* Top Author Header */}
             <div className="flex flex-col sm:flex-row items-center justify-start gap-6 border-b border-gray-200 pb-8 mb-8">
               <img 
-                src="/عادل الحديثي.jpeg" 
+                src="/adel_hadithi.jpeg" 
                 alt="الدكتور المهندس عادل الحديثي" 
                 className="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border-4 border-white shadow-2xl shrink-0" 
               />

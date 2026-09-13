@@ -35,7 +35,7 @@ const VisionMissionPage = () => {
               </div>
               <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden" style={{ height: '70vh' }}>
                 <iframe 
-                  src="/تقرير عام عن نشاط الهيئة 15 يوليو 2026.pdf#toolbar=0" 
+                  src="/activity_report_2026.pdf#toolbar=0" 
                   className="w-full h-full border-none pointer-events-auto"
                   title="تقرير عام عن نشاط الهيئة 15 يوليو 2026"
                 ></iframe>

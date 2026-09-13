@@ -135,7 +135,7 @@ const CoursesSection = () => {
           </div>
           <div className="bg-gray-50 rounded-2xl shadow-inner border border-gray-200 overflow-hidden" style={{ height: '80vh' }}>
             <iframe
-              src="/الحقيبة التدريبية للدورة اونلاين.pdf#toolbar=0"
+              src="/training_kit_online.pdf#toolbar=0"
               className="w-full h-full border-none pointer-events-auto"
               title="الحقيبة التدريبية للدورة اونلاين"
             ></iframe>
