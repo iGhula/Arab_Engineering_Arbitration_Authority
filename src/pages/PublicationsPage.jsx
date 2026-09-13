@@ -18,10 +18,11 @@ const PublicationsPage = () => {
       desc: "الإطار الإجرائي الملزم لجميع التحكيمات التي تجرى تحت مظلة الهيئة."
     },
     {
-      title: "الدليل العملي للمحكم الهندسي",
-      type: "PDF",
-      url: "/الدليل العملي للمحكم الهندسي.pdf",
-      desc: "المرجع الإجرائي المتكامل الذي يغطي كافة جوانب التحكيم الهندسي."
+      title: "إجراءات وقواعد التحكيم الهندسي (النسخة الإنجليزية)",
+      subtitle: "Engineering Arbitration Procedures and Rules",
+      type: "PDF (English)",
+      url: "/Engineering_Arbitration_Procedures_and_Rules_EN.pdf",
+      desc: "The official English edition of the procedural framework and arbitration rules governing proceedings under the Authority."
     },
     {
       title: "مدونة السلوك المهني للهيئة",

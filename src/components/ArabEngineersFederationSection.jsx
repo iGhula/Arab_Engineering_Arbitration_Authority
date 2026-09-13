@@ -19,6 +19,21 @@ const ArabEngineersFederationSection = () => {
 
         <div className="container mx-auto px-4 relative z-10 text-center">
 
+          {/* Logo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.7 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mb-6 relative inline-block"
+          >
+            <div className="absolute inset-0 w-full h-full bg-secondary/25 blur-[50px] rounded-full scale-125"></div>
+            <img 
+              src="/eee.jpeg" 
+              alt="اتحاد المهندسين العرب" 
+              className="relative w-32 h-32 md:w-44 md:h-44 object-contain drop-shadow-2xl rounded-2xl"
+            />
+          </motion.div>
+
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

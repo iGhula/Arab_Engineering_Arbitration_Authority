@@ -2,13 +2,12 @@ const xlsx = require('xlsx');
 const fs = require('fs');
 const path = require('path');
 
+const officialFile = path.join(__dirname, 'public', 'القوائم الموحدة للمحكمين.xlsx');
 const dataDir = path.join(__dirname, 'src', 'data');
-const catAFile = path.join(dataDir, 'category_a.xlsx');
-const catBFile = path.join(dataDir, 'category_b.xlsx');
 
 const normalizeCountry = (country) => {
   if (!country) return '';
-  const c = country.trim();
+  const c = country.toString().trim();
   const map = {
     'اردني': 'الأردن',
     'أردني': 'الأردن',
@@ -45,41 +44,58 @@ const normalizeCountry = (country) => {
     'قطري': 'قطر',
     'قطرى': 'قطر',
     'اماراتي': 'الإمارات',
-    'اماراتى': 'الإمارات'
+    'اماراتى': 'الإمارات',
+    'امريكي': 'أمريكا',
+    'أمريكي': 'أمريكا'
   };
   return map[c] || c;
 };
 
-const parseExcel = (filePath, category) => {
-  if (!fs.existsSync(filePath)) return [];
-  const workbook = xlsx.readFile(filePath);
-  const sheetName = workbook.SheetNames[0];
-  const sheet = workbook.Sheets[sheetName];
-  // Parse as 2D array
-  const rawData = xlsx.utils.sheet_to_json(sheet, { header: 1 });
-  
-  // Skip header, assuming first row is header
-  const data = rawData.slice(1).map((row, index) => {
-    // Handling cases where columns might be mixed, but assuming [Name, Country]
-    const name = row[0];
-    const country = row[1];
-    if (!name) return null;
-    return {
-      id: `arb-${category === 'فئة أ' ? 'a' : 'b'}-${index}`,
-      name: name.toString().trim(),
-      country: normalizeCountry(country ? country.toString() : ''),
-      category: category,
-      specialty: '' // They don't have specialty in these new files
-    };
-  }).filter(Boolean);
-  
-  return data;
-};
+const workbook = xlsx.readFile(officialFile);
 
-const catAData = parseExcel(catAFile, 'فئة أ');
-const catBData = parseExcel(catBFile, 'فئة ب');
+// 1. Parse Category A
+const sheetA = workbook.Sheets['محكمون فئة (أ)'];
+const rowsA = xlsx.utils.sheet_to_json(sheetA, { header: 1 }).slice(1);
+const catAData = [];
+const seenA = new Set();
+
+rowsA.forEach((row) => {
+  if (typeof row[0] !== 'number' || !row[1]) return;
+  const name = row[1].toString().trim();
+  if (seenA.has(name)) return; // prevent any duplicate
+  seenA.add(name);
+
+  catAData.push({
+    id: `arb-a-${row[0]}`,
+    name: name,
+    country: normalizeCountry(row[2]),
+    category: 'فئة أ',
+    specialty: row[3] ? row[3].toString().trim() : ''
+  });
+});
+
+// 2. Parse Category B
+const sheetB = workbook.Sheets['محكمون فئة (ب)'];
+const rowsB = xlsx.utils.sheet_to_json(sheetB, { header: 1 }).slice(2);
+const catBData = [];
+const seenB = new Set();
+
+rowsB.forEach((row) => {
+  if (typeof row[0] !== 'number' || !row[1]) return;
+  const name = row[1].toString().trim();
+  if (seenB.has(name)) return; // prevent any duplicate
+  seenB.add(name);
+
+  catBData.push({
+    id: `arb-b-${row[0]}`,
+    name: name,
+    country: normalizeCountry(row[3]),
+    category: 'فئة ب',
+    specialty: row[4] ? row[4].toString().trim() : ''
+  });
+});
 
 const combined = [...catAData, ...catBData];
 
 fs.writeFileSync(path.join(dataDir, 'parsed_arbitrators.json'), JSON.stringify(combined, null, 2));
-console.log(`Parsed ${catAData.length} from Category A and ${catBData.length} from Category B`);
+console.log(`Parsed ${catAData.length} unique from Category A and ${catBData.length} unique from Category B (Total: ${combined.length})`);

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import PageHero from '../components/PageHero';
 import Footer from '../components/Footer';
-import { AlertCircle, GraduationCap, Award, FileSignature, Users, Landmark } from 'lucide-react';
+import { AlertCircle, GraduationCap, Award, FileSignature, Users, Landmark, CreditCard, RefreshCw } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const MembershipsPage = () => {
@@ -40,6 +40,12 @@ const MembershipsPage = () => {
       title: "التسجيل في هيئات التحكيم الهندسي",
       desc: "بعد إتمام الدورات التدريبية، يمكن التقدم للتسجيل في هيئة تحكيم معترف بها. في مصر مثلاً، يمكنك التقدم للجنة التحكيم الهندسي التابعة لنقابة المهندسين أو هيئة التحكيم الهندسي الدولي.",
       icon: <Landmark className="w-6 h-6 text-white" />
+    },
+    {
+      num: "06",
+      title: "دفع الرسوم",
+      desc: "سداد رسوم العضوية المقررة وفقاً للائحة المالية للهيئة لاستكمال إجراءات الاعتماد وإصدار بطاقة الهوية.",
+      icon: <CreditCard className="w-6 h-6 text-white" />
     }
   ];
 
@@ -51,8 +57,11 @@ const MembershipsPage = () => {
       <main className="flex-grow pt-24 relative z-10">
         <PageHero tag="عضويات" title="طلب عضوية الهيئة" />
         
+        {/* Application Forms Section */}
         <section className="py-16">
-          <div className="container mx-auto px-4 max-w-4xl">
+          <div className="container mx-auto px-4 max-w-4xl space-y-8">
+
+            {/* 1. استمارة الحصول على هوية الهيئة */}
             <div className="bg-white rounded-3xl shadow-[0_10px_35px_rgba(0,0,0,0.05)] border-t-8 border-primary p-8 md:p-12 text-right">
               <div className="flex flex-col md:flex-row items-center justify-between gap-8">
                 <div className="space-y-4">
@@ -85,6 +94,43 @@ const MembershipsPage = () => {
                 </div>
               </div>
             </div>
+
+            {/* 2. استمارة تجديد هوية الهيئة */}
+            <div className="bg-white rounded-3xl shadow-[0_10px_35px_rgba(0,0,0,0.05)] border-t-8 border-secondary p-8 md:p-12 text-right">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="space-y-4">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold border border-primary/20">
+                    <RefreshCw className="w-4 h-4" />
+                    <span>تجديد العضوية والهوية</span>
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-extrabold text-primary">
+                    استمارة تجديد هوية الهيئة
+                  </h2>
+                  <p className="text-gray-600 text-base leading-relaxed max-w-2xl">
+                    مخصصة للأعضاء والمحكمين الراغبين في تجديد بطاقة هوية الهيئة وتحديث بياناتهم. يُرجى العلم بأنه يتوجب سداد رسوم التجديد المقررة لاستكمال إجراءات التجديد وتحديث البيانات وإصدار الهوية.
+                  </p>
+                  <div className="bg-amber-50 text-amber-900 p-4 rounded-xl flex items-start gap-3 border border-amber-200 text-sm font-medium">
+                    <CreditCard className="w-5 h-5 shrink-0 mt-0.5 text-secondary" />
+                    <p>
+                      <strong>ملاحظة هامة:</strong> يتوجب سداد الرسوم المقررة لتجديد الهوية قبل اعتماد التجديد وإصدار بطاقة الهوية الجديدة.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="shrink-0 w-full md:w-auto">
+                  <a
+                    href="https://docs.google.com/spreadsheets/d/1QLefH1TRFAELMz5mwwJ5B2J_YgGqx_-_csZF1hwVlJQ/edit?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-3 w-full md:w-auto px-8 py-5 bg-secondary hover:bg-primary text-white font-bold text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  >
+                    <span>استمارة تجديد الهوية</span>
+                    <RefreshCw className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
           </div>
         </section>
 

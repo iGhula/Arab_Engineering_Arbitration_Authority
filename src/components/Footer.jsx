@@ -46,7 +46,7 @@ const Footer = () => {
           {/* Logo & Desc Column */}
           <div className="col-span-12 md:col-span-6 lg:col-span-3 flex flex-col items-start text-right">
             <div className="mb-4">
-              <img src="/logo.png" alt="الهيئة العربية للتحكيم الهندسي" className="h-20 w-auto object-contain drop-shadow-md hover:opacity-90 transition-opacity" />
+              <img src="/logo.jpeg" alt="الهيئة العربية للتحكيم الهندسي" className="h-20 w-auto object-contain drop-shadow-md hover:opacity-90 transition-opacity" />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               إحدى الهيئات التخصصية في اتحاد المهندسين العرب والتي تأسست بناءً على قرار المجلس الأعلى للاتحاد سنة (2010).

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Book, Download, FileText } from 'lucide-react';
+import { Book, Download, FileText, ShoppingCart } from 'lucide-react';
 
 const BooksSection = ({ hideTitle = true }) => {
   const books = [
@@ -17,10 +17,10 @@ const BooksSection = ({ hideTitle = true }) => {
       desc: "دليل تدريبي وتأهيلي مفصل لإعداد المحكم الهندسي، صادر عن الهيئة العربية للتحكيم الهندسي."
     },
     {
-      title: "التحكيم الهندسي",
+      title: "الدليل العملي للمحكم الهندسي",
       type: "PDF",
-      url: "/التحكيم الهندسي.pdf",
-      desc: "كتاب شامل حول التحكيم الهندسي وتطبيقاته."
+      url: "/الدليل-العملي-للمحكم-الهندسي-preview.pdf",
+      desc: "المرجع الإجرائي المتكامل الذي يغطي كافة جوانب التحكيم الهندسي، صادر عن الهيئة العربية للتحكيم الهندسي."
     }
   ];
 
@@ -47,6 +47,41 @@ const BooksSection = ({ hideTitle = true }) => {
             </p>
           </motion.div>
         )}
+
+        {/* Purchase Form Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="bg-white rounded-3xl shadow-[0_10px_35px_rgba(0,0,0,0.05)] border-t-8 border-secondary p-8 md:p-12 text-right mb-16"
+        >
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="space-y-4">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-bold border border-secondary/20">
+                <ShoppingCart className="w-4 h-4" />
+                <span>طلب وشراء الكتب</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-primary">
+                استمارة شراء الكتب
+              </h2>
+              <p className="text-gray-600 text-base leading-relaxed max-w-2xl">
+                يمكنكم طلب وشراء النسخ المعتمدة من كتب وإصدارات الهيئة العربية للتحكيم الهندسي من خلال تعبئة نموذج الشراء الإلكتروني.
+              </p>
+            </div>
+
+            <div className="shrink-0 w-full md:w-auto">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfOiBKyPtUcetpcorX6jK1J2JGcnqLqmRlEwBRNM24BitVxQA/viewform?usp=dialog"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 w-full md:w-auto px-8 py-5 bg-secondary hover:bg-primary text-white font-bold text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <span>تعبئة استمارة شراء الكتب</span>
+                <ShoppingCart className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {books.map((book, index) => (

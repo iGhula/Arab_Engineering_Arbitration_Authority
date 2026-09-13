@@ -70,7 +70,7 @@ const Header = () => {
                 className="flex items-center gap-3 cursor-pointer"
                 onClick={(e) => navigate(e, '/')}
               >
-                <img src="/logo.png" alt="الهيئة العربية للتحكيم الهندسي" className="h-16 w-auto object-contain drop-shadow-md" />
+                <img src="/logo.jpeg" alt="الهيئة العربية للتحكيم الهندسي" className="h-16 w-auto object-contain drop-shadow-md" />
               </div>
             </div>
 
@@ -202,7 +202,7 @@ const Header = () => {
       >
         <div className="p-6">
           <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-6">
-            <img src="/logo.png" alt="الهيئة العربية للتحكيم الهندسي" className="h-12 w-auto object-contain" />
+            <img src="/logo.jpeg" alt="الهيئة العربية للتحكيم الهندسي" className="h-12 w-auto object-contain" />
             <button 
               className="text-gray-400 hover:text-white bg-white/5 p-2 rounded-full transition-colors"
               onClick={() => setIsMobileMenuOpen(false)}
